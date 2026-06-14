@@ -1,0 +1,11 @@
+# CQ4: Which AI systems are INFERRED high-risk, and via which Annex III domain? (Art 6(2), Annex III)
+# Runs on the REASONED graph: no system is asserted as HighRiskAISystem.
+PREFIX euai: <https://zhaoxing-li.github.io/eu-ai-act-ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?system ?systemLabel ?domain ?domainLabel WHERE {
+  ?system a euai:HighRiskAISystem ;
+          euai:operatesInDomain ?domain .
+  OPTIONAL { ?system rdfs:label ?systemLabel }
+  OPTIONAL { ?domain rdfs:label ?domainLabel }
+}
+ORDER BY ?system

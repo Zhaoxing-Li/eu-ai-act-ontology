@@ -1,0 +1,10 @@
+actor,obligation,label
+Deployer,ob_DeployerHumanOversight,Deployer human oversight obligation
+Provider,ob_RiskManagement,Risk management obligation
+Provider,ob_DataGovernance,Data and data governance obligation
+Provider,ob_TechnicalDocumentation,Technical documentation obligation
+Provider,ob_RecordKeeping,Record-keeping (logging) obligation
+Provider,ob_ProviderTransparency,Transparency and provision of information to deployers
+Provider,ob_HumanOversightDesign,Human oversight (design) obligation
+Provider,ob_AccuracyRobustness,"Accuracy, robustness and cybersecurity obligation"
+Provider,ob_PostMarketMonitoring,Post-market monitoring obligation

@@ -1,0 +1,9 @@
+# CQ1: Which AI practices are prohibited, and which article prohibits each? (Article 5)
+PREFIX euai: <https://zhaoxing-li.github.io/eu-ai-act-ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?practice ?label ?article WHERE {
+  ?practice a euai:ProhibitedPractice ;
+            rdfs:label ?label ;
+            euai:hasArticleReference ?article .
+}
+ORDER BY ?article

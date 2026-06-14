@@ -1,0 +1,9 @@
+obligation,label,article
+ob_DataGovernance,Data and data governance obligation,Article 10
+ob_TechnicalDocumentation,Technical documentation obligation,Article 11
+ob_RecordKeeping,Record-keeping (logging) obligation,Article 12
+ob_ProviderTransparency,Transparency and provision of information to deployers,Article 13
+ob_HumanOversightDesign,Human oversight (design) obligation,Article 14
+ob_AccuracyRobustness,"Accuracy, robustness and cybersecurity obligation",Article 15
+ob_PostMarketMonitoring,Post-market monitoring obligation,Article 72
+ob_RiskManagement,Risk management obligation,Article 9

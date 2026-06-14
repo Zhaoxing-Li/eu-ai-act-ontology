@@ -1,0 +1,11 @@
+# CQ5: Which transparency obligations apply to limited-risk / user-facing systems? (Article 50)
+PREFIX euai: <https://zhaoxing-li.github.io/eu-ai-act-ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?obligation ?label ?bearer ?article WHERE {
+  ?obligation a euai:TransparencyObligation ;
+              euai:appliesToSystem euai:LimitedRiskAISystem ;
+              euai:imposedOn ?bearer ;
+              rdfs:label ?label ;
+              euai:hasArticleReference ?article .
+}
+ORDER BY ?article
