@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this ontology, please cite it as below."
+title: "EU AI Act Ontology (proof of concept)"
+abstract: >-
+  A proof-of-concept ontology of the core of Regulation (EU) 2024/1689 (the EU AI
+  Act) — AI system categories, prohibited practices, high-risk systems, core
+  actors, risk tiers, Annex III domains and major obligations — built with an
+  AI-assisted, human-verified pipeline and aligned to the AI Risk Ontology (AIRO).
+type: dataset
+authors:
+  - family-names: "Li"
+    given-names: "Zhaoxing"
+    orcid: "https://orcid.org/0000-0003-3560-3461"
+version: "0.1.0"
+date-released: "2026-06-14"
+license:
+  - MIT
+  - CC-BY-4.0
+repository-code: "https://github.com/Zhaoxing-Li/eu-ai-act-ontology"
+url: "https://github.com/Zhaoxing-Li/eu-ai-act-ontology"
+keywords:
+  - ontology
+  - OWL
+  - knowledge graph
+  - semantic web
+  - EU AI Act
+  - neuro-symbolic AI
+  - AIRO
+references:
+  - type: legislation
+    title: "Regulation (EU) 2024/1689 of the European Parliament and of the Council (Artificial Intelligence Act)"
+    institution:
+      name: "European Union"
+    url: "http://data.europa.eu/eli/reg/2024/1689/oj"
+    year: 2024
