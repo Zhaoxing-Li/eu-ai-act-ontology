@@ -1,4 +1,4 @@
-# CQ2: Which obligations apply to providers of high-risk AI systems? (Articles 9-17)
+# CQ2: Which obligations apply to providers of high-risk AI systems? (Articles 9-15 and 72)
 PREFIX euai: <https://zhaoxing-li.github.io/eu-ai-act-ontology#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?obligation ?label ?article WHERE {

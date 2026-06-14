@@ -14,14 +14,6 @@ euai:AdministrationOfJusticeAndDemocracy a euai:AnnexIIIDomain ;
     euai:hasAnnexReference "Annex III(8)" ;
     euai:legalTextSnippet "Administration of justice and democratic processes: (a) AI systems intended to be used by a judicial authority or on their behalf to assist a judicial authority in researching and interpreting facts and the law and in ap" .
 
-euai:AuthorisedRepresentative a owl:Class ;
-    rdfs:label "Authorised representative" ;
-    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
-    rdfs:subClassOf airo:AIOperator,
-        euai:Actor ;
-    euai:hasArticleReference "Article 3(5)" ;
-    euai:legalTextSnippet "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo" .
-
 euai:BiometricCategorisationSensitive a euai:AIPractice,
         euai:AISystem,
         euai:ProhibitedPractice ;
@@ -29,7 +21,7 @@ euai:BiometricCategorisationSensitive a euai:AIPractice,
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     euai:hasArticleReference "Article 5(1)(g)" ;
     euai:hasRiskLevel euai:UnacceptableRisk ;
-    euai:legalTextSnippet "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu" .
+    euai:legalTextSnippet "biometric categorisation systems that categorise individually natural persons based on their biometric data to deduce or infer their race, political opinions, trade union membership, religious or philosophical beliefs, s" .
 
 euai:Biometrics a euai:AnnexIIIDomain ;
     rdfs:label "Biometrics" ;
@@ -38,6 +30,7 @@ euai:Biometrics a euai:AnnexIIIDomain ;
     euai:legalTextSnippet "Biometrics, in so far as their use is permitted under relevant Union or national law: (a) remote biometric identification systems. This shall not include AI systems intended to be used for biometric verification the sole" .
 
 euai:CVScreeningTool a euai:AISystem,
+        euai:AnnexIIIHighRiskAISystem,
         euai:HighRiskAISystem ;
     rdfs:label "ACME CV screening tool" ;
     rdfs:comment "Demo instance: should be INFERRED as a HighRiskAISystem via the employment domain (Annex III(4))." ;
@@ -55,14 +48,6 @@ euai:CustomerServiceChatbot a euai:AISystem,
     rdfs:comment "Demo instance: NOT high-risk (no Annex III domain); subject only to Article 50 transparency. Confirms the reasoner does not over-classify." ;
     euai:hasRiskLevel euai:LimitedRisk .
 
-euai:Distributor a owl:Class ;
-    rdfs:label "Distributor" ;
-    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
-    rdfs:subClassOf airo:AIOperator,
-        euai:Actor ;
-    euai:hasArticleReference "Article 3(7)" ;
-    euai:legalTextSnippet "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo" .
-
 euai:EmotionRecognitionWorkEducation a euai:AIPractice,
         euai:AISystem,
         euai:ProhibitedPractice ;
@@ -70,15 +55,16 @@ euai:EmotionRecognitionWorkEducation a euai:AIPractice,
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     euai:hasArticleReference "Article 5(1)(f)" ;
     euai:hasRiskLevel euai:UnacceptableRisk ;
-    euai:legalTextSnippet "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu" .
+    euai:legalTextSnippet "infer emotions of a natural person in the areas of workplace and education institutions, except where the use of the AI system is intended to be put in place or into the market for medical or safety reasons; (g) the plac" .
 
 euai:EssentialServices a euai:AnnexIIIDomain ;
     rdfs:label "Access to essential services" ;
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     euai:hasAnnexReference "Annex III(5)" ;
-    euai:legalTextSnippet "Access to and enjoyment of essential private services and essential public services and benefits: (a) AI systems intended to be used by public authorities or on behalf of public authorities to evaluate the eligibility of" .
+    euai:legalTextSnippet "essential private services and essential public services and benefits: (a) AI systems intended to be used by public authorities or on behalf of public authorities to evaluate the eligibility of natural persons for essent" .
 
 euai:ExamProctoringSystem a euai:AISystem,
+        euai:AnnexIIIHighRiskAISystem,
         euai:HighRiskAISystem ;
     rdfs:label "Online exam proctoring system" ;
     rdfs:comment "Demo instance: should be INFERRED as a HighRiskAISystem via the education domain (Annex III(3))." ;
@@ -91,7 +77,7 @@ euai:ExploitationOfVulnerabilities a euai:AIPractice,
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     euai:hasArticleReference "Article 5(1)(b)" ;
     euai:hasRiskLevel euai:UnacceptableRisk ;
-    euai:legalTextSnippet "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu" .
+    euai:legalTextSnippet "exploits any of the vulnerabilities of a natural person or a specific group of persons due to their age, disability or a specific social or economic situation, with the objective, or the effect, of materially distorting" .
 
 euai:FacialImageScraping a euai:AIPractice,
         euai:AISystem,
@@ -100,7 +86,7 @@ euai:FacialImageScraping a euai:AIPractice,
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     euai:hasArticleReference "Article 5(1)(e)" ;
     euai:hasRiskLevel euai:UnacceptableRisk ;
-    euai:legalTextSnippet "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu" .
+    euai:legalTextSnippet "create or expand facial recognition databases through the untargeted scraping of facial images from the internet or CCTV footage; (f) the placing on the market, the putting into service for this specific purpose, or the" .
 
 euai:GeneralPurposeAIModel a owl:Class ;
     rdfs:label "General-purpose AI model" ;
@@ -108,21 +94,13 @@ euai:GeneralPurposeAIModel a owl:Class ;
     rdfs:subClassOf airo:GPAIModel ;
     skos:definition "An AI model, including one trained with a large amount of data using self-supervision at scale, that displays significant generality and competence across tasks." ;
     euai:hasArticleReference "Article 3(63)" ;
-    euai:legalTextSnippet "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo" .
+    euai:legalTextSnippet "‘general-purpose AI model’ means an AI model, including where such an AI model is trained with a large amount of data using self-supervision at scale, that displays significant generality and is capable of competently pe" .
 
 euai:HighRisk a euai:RiskLevel ;
     rdfs:label "High risk" ;
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     euai:hasArticleReference "Article 6" ;
-    euai:legalTextSnippet "Irrespective of whether an AI system is placed on the market or put into service independently of the products referred to in points (a) and (b), that AI system shall be considered to be high-risk where both of the follo" .
-
-euai:Importer a owl:Class ;
-    rdfs:label "Importer" ;
-    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
-    rdfs:subClassOf airo:AIOperator,
-        euai:Actor ;
-    euai:hasArticleReference "Article 3(6)" ;
-    euai:legalTextSnippet "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo" .
+    euai:legalTextSnippet "high-risk where both of the following conditions are fulfilled: (a) the AI system is intended to be used as a safety component of a product, or the AI system is itself a product, covered by the Union harmonisation legisl" .
 
 euai:IndividualCrimePrediction a euai:AIPractice,
         euai:AISystem,
@@ -131,7 +109,7 @@ euai:IndividualCrimePrediction a euai:AIPractice,
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     euai:hasArticleReference "Article 5(1)(d)" ;
     euai:hasRiskLevel euai:UnacceptableRisk ;
-    euai:legalTextSnippet "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu" .
+    euai:legalTextSnippet "risk assessments of natural persons in order to assess or predict the risk of a natural person committing a criminal offence, based solely on the profiling of a natural person or on assessing their personality traits and" .
 
 euai:LawEnforcement a euai:AnnexIIIDomain ;
     rdfs:label "Law enforcement" ;
@@ -145,7 +123,7 @@ euai:MarketSurveillanceAuthority a owl:Class ;
     rdfs:comment "An authority, not an 'operator'. Aligned to airo:Stakeholder rather than airo:AIOperator. Confirm scope." ;
     rdfs:subClassOf airo:Stakeholder ;
     euai:hasArticleReference "Article 70" ;
-    euai:legalTextSnippet "Each Member State shall establish or designate as national competent authorities at least one notifying authority and at least one market surveillance authority for the purposes of this Regulation. Those national compete" .
+    euai:legalTextSnippet "market surveillance authority for the purposes of this Regulation. Those national competent authorities shall exercise their powers independently, impartially and without bias so as to safeguard the objectivity of their" .
 
 euai:MigrationAsylumBorderControl a euai:AnnexIIIDomain ;
     rdfs:label "Migration, asylum and border control" ;
@@ -158,7 +136,7 @@ euai:MinimalRisk a euai:RiskLevel ;
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     rdfs:comment "'Minimal risk' is a recital-level category (voluntary codes of conduct, Art 95). No span in the articles; flagged." ;
     euai:hasArticleReference "Recital 165" ;
-    euai:legalTextSnippet "The AI Office and the Member States shall encourage and facilitate the drawing up of codes of conduct, including related governance mechanisms, intended to foster the voluntary application to AI systems, other than high-" .
+    euai:legalTextSnippet "codes of conduct, including related governance mechanisms, intended to foster the voluntary application to AI systems, other than high-risk AI systems, of some or all of the requirements set out in Chapter III, Section 2" .
 
 euai:RealTimeRemoteBiometricID a euai:AIPractice,
         euai:AISystem,
@@ -168,7 +146,7 @@ euai:RealTimeRemoteBiometricID a euai:AIPractice,
     rdfs:comment "Conditional prohibition (permitted under narrow exceptions). Modelled as prohibited; the exceptions are out of scope for the PoC." ;
     euai:hasArticleReference "Article 5(1)(h)" ;
     euai:hasRiskLevel euai:UnacceptableRisk ;
-    euai:legalTextSnippet "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu" .
+    euai:legalTextSnippet "real-time’ remote biometric identification systems in publicly accessible spaces for the purposes of law enforcement, unless and in so far as such use is strictly necessary for one of the following objectives: (i) the ta" .
 
 euai:SocialScoring a euai:AIPractice,
         euai:AISystem,
@@ -177,7 +155,7 @@ euai:SocialScoring a euai:AIPractice,
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     euai:hasArticleReference "Article 5(1)(c)" ;
     euai:hasRiskLevel euai:UnacceptableRisk ;
-    euai:legalTextSnippet "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu" .
+    euai:legalTextSnippet "evaluation or classification of natural persons or groups of persons over a certain period of time based on their social behaviour or known, inferred or predicted personal or personality characteristics, with the social" .
 
 euai:SubliminalManipulation a euai:AIPractice,
         euai:AISystem,
@@ -186,7 +164,7 @@ euai:SubliminalManipulation a euai:AIPractice,
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     euai:hasArticleReference "Article 5(1)(a)" ;
     euai:hasRiskLevel euai:UnacceptableRisk ;
-    euai:legalTextSnippet "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu" .
+    euai:legalTextSnippet "deploys subliminal techniques beyond a person’s consciousness or purposefully manipulative or deceptive techniques, with the objective, or the effect of materially distorting the behaviour of a person or a group of perso" .
 
 euai:appliesToSystem a owl:ObjectProperty ;
     rdfs:label "applies to system" ;
@@ -223,7 +201,7 @@ euai:ob_AIInteractionDisclosure a euai:Obligation,
     euai:appliesToSystem euai:LimitedRiskAISystem ;
     euai:hasArticleReference "Article 50(1)" ;
     euai:imposedOn euai:Provider ;
-    euai:legalTextSnippet "Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI syst" .
+    euai:legalTextSnippet "informed that they are interacting with an AI system, unless this is obvious from the point of view of a natural person who is reasonably well-informed, observant and circumspect, taking into account the circumstances an" .
 
 euai:ob_AccuracyRobustness a euai:AccuracyRobustnessObligation,
         euai:Obligation ;
@@ -232,7 +210,16 @@ euai:ob_AccuracyRobustness a euai:AccuracyRobustnessObligation,
     euai:appliesToSystem euai:HighRiskAISystem ;
     euai:hasArticleReference "Article 15" ;
     euai:imposedOn euai:Provider ;
-    euai:legalTextSnippet "High-risk AI systems shall be designed and developed in such a way that they achieve an appropriate level of accuracy, robustness, and cybersecurity, and that they perform consistently in those respects throughout their" .
+    euai:legalTextSnippet "achieve an appropriate level of accuracy, robustness, and cybersecurity, and that they perform consistently in those respects throughout their lifecycle. 2. To address the technical aspects of how to measure the appropri" .
+
+euai:ob_AuthRepTasks a euai:Obligation,
+        euai:RepresentationObligation ;
+    rdfs:label "Authorised representative mandate tasks" ;
+    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
+    euai:appliesToSystem euai:HighRiskAISystem ;
+    euai:hasArticleReference "Article 22" ;
+    euai:imposedOn euai:AuthorisedRepresentative ;
+    euai:legalTextSnippet "The authorised representative shall perform the tasks specified in the mandate received from the provider. It shall provide a copy of the mandate to the market surveillance authorities upon request, in one of the officia" .
 
 euai:ob_DataGovernance a euai:DataGovernanceObligation,
         euai:Obligation ;
@@ -241,7 +228,7 @@ euai:ob_DataGovernance a euai:DataGovernanceObligation,
     euai:appliesToSystem euai:HighRiskAISystem ;
     euai:hasArticleReference "Article 10" ;
     euai:imposedOn euai:Provider ;
-    euai:legalTextSnippet "Training, validation and testing data sets shall be subject to data governance and management practices appropriate for the intended purpose of the high-risk AI system. Those practices shall concern in particular: (a) th" .
+    euai:legalTextSnippet "shall be subject to data governance and management practices appropriate for the intended purpose of the high-risk AI system. Those practices shall concern in particular: (a) the relevant design choices; (b) data collect" .
 
 euai:ob_DeepfakeDisclosure a euai:Obligation,
         euai:TransparencyObligation ;
@@ -251,7 +238,7 @@ euai:ob_DeepfakeDisclosure a euai:Obligation,
     euai:appliesToSystem euai:LimitedRiskAISystem ;
     euai:hasArticleReference "Article 50(4)" ;
     euai:imposedOn euai:Deployer ;
-    euai:legalTextSnippet "Deployers of an AI system that generates or manipulates image, audio or video content constituting a deep fake, shall disclose that the content has been artificially generated or manipulated. This obligation shall not ap" .
+    euai:legalTextSnippet "constituting a deep fake, shall disclose that the content has been artificially generated or manipulated. This obligation shall not apply where the use is authorised by law to detect, prevent, investigate or prosecute cr" .
 
 euai:ob_DeployerHumanOversight a euai:HumanOversightObligation,
         euai:Obligation ;
@@ -260,7 +247,16 @@ euai:ob_DeployerHumanOversight a euai:HumanOversightObligation,
     euai:appliesToSystem euai:HighRiskAISystem ;
     euai:hasArticleReference "Article 26" ;
     euai:imposedOn euai:Deployer ;
-    euai:legalTextSnippet "Deployers shall assign human oversight to natural persons who have the necessary competence, training and authority, as well as the necessary support. 3. The obligations set out in paragraphs 1 and 2, are without prejudi" .
+    euai:legalTextSnippet "assign human oversight to natural persons who have the necessary competence, training and authority, as well as the necessary support. 3. The obligations set out in paragraphs 1 and 2, are without prejudice to other depl" .
+
+euai:ob_DistributorVerification a euai:ConformityVerificationObligation,
+        euai:Obligation ;
+    rdfs:label "Distributor verification" ;
+    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
+    euai:appliesToSystem euai:HighRiskAISystem ;
+    euai:hasArticleReference "Article 24" ;
+    euai:imposedOn euai:Distributor ;
+    euai:legalTextSnippet "Before making a high-risk AI system available on the market, distributors shall verify that it bears the required CE marking, that it is accompanied by a copy of the EU declaration of conformity referred to in Article 47" .
 
 euai:ob_HumanOversightDesign a euai:HumanOversightObligation,
         euai:Obligation ;
@@ -269,7 +265,16 @@ euai:ob_HumanOversightDesign a euai:HumanOversightObligation,
     euai:appliesToSystem euai:HighRiskAISystem ;
     euai:hasArticleReference "Article 14" ;
     euai:imposedOn euai:Provider ;
-    euai:legalTextSnippet "High-risk AI systems shall be designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen by natural persons during the period in which they are i" .
+    euai:legalTextSnippet "designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen by natural persons during the period in which they are in use. 2. Human oversight shal" .
+
+euai:ob_ImporterConformity a euai:ConformityVerificationObligation,
+        euai:Obligation ;
+    rdfs:label "Importer conformity verification" ;
+    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
+    euai:appliesToSystem euai:HighRiskAISystem ;
+    euai:hasArticleReference "Article 23" ;
+    euai:imposedOn euai:Importer ;
+    euai:legalTextSnippet "Before placing a high-risk AI system on the market, importers shall ensure that the system is in conformity with this Regulation by verifying that: (a) the relevant conformity assessment procedure referred to in Article" .
 
 euai:ob_PostMarketMonitoring a euai:Obligation,
         euai:PostMarketMonitoringObligation ;
@@ -278,7 +283,7 @@ euai:ob_PostMarketMonitoring a euai:Obligation,
     euai:appliesToSystem euai:HighRiskAISystem ;
     euai:hasArticleReference "Article 72" ;
     euai:imposedOn euai:Provider ;
-    euai:legalTextSnippet "Providers shall establish and document a post-market monitoring system in a manner that is proportionate to the nature of the AI technologies and the risks of the high-risk AI system. 2. The post-market monitoring system" .
+    euai:legalTextSnippet "establish and document a post-market monitoring system in a manner that is proportionate to the nature of the AI technologies and the risks of the high-risk AI system. 2. The post-market monitoring system shall actively" .
 
 euai:ob_ProviderTransparency a euai:Obligation,
         euai:TransparencyObligation ;
@@ -287,7 +292,7 @@ euai:ob_ProviderTransparency a euai:Obligation,
     euai:appliesToSystem euai:HighRiskAISystem ;
     euai:hasArticleReference "Article 13" ;
     euai:imposedOn euai:Provider ;
-    euai:legalTextSnippet "High-risk AI systems shall be designed and developed in such a way as to ensure that their operation is sufficiently transparent to enable deployers to interpret a system’s output and use it appropriately. An appropriate" .
+    euai:legalTextSnippet "designed and developed in such a way as to ensure that their operation is sufficiently transparent to enable deployers to interpret a system’s output and use it appropriately. An appropriate type and degree of transparen" .
 
 euai:ob_RecordKeeping a euai:LoggingObligation,
         euai:Obligation ;
@@ -296,7 +301,7 @@ euai:ob_RecordKeeping a euai:LoggingObligation,
     euai:appliesToSystem euai:HighRiskAISystem ;
     euai:hasArticleReference "Article 12" ;
     euai:imposedOn euai:Provider ;
-    euai:legalTextSnippet "High-risk AI systems shall technically allow for the automatic recording of events (logs) over the lifetime of the system. 2. In order to ensure a level of traceability of the functioning of a high-risk AI system that is" .
+    euai:legalTextSnippet "technically allow for the automatic recording of events (logs) over the lifetime of the system. 2. In order to ensure a level of traceability of the functioning of a high-risk AI system that is appropriate to the intende" .
 
 euai:ob_RiskManagement a euai:Obligation,
         euai:RiskManagementObligation ;
@@ -305,7 +310,7 @@ euai:ob_RiskManagement a euai:Obligation,
     euai:appliesToSystem euai:HighRiskAISystem ;
     euai:hasArticleReference "Article 9" ;
     euai:imposedOn euai:Provider ;
-    euai:legalTextSnippet "A risk management system shall be established, implemented, documented and maintained in relation to high-risk AI systems. 2. The risk management system shall be understood as a continuous iterative process planned and r" .
+    euai:legalTextSnippet "risk management system shall be established, implemented, documented and maintained in relation to high-risk AI systems. 2. The risk management system shall be understood as a continuous iterative process planned and run" .
 
 euai:ob_SyntheticContentMarking a euai:Obligation,
         euai:TransparencyObligation ;
@@ -314,7 +319,7 @@ euai:ob_SyntheticContentMarking a euai:Obligation,
     euai:appliesToSystem euai:LimitedRiskAISystem ;
     euai:hasArticleReference "Article 50(2)" ;
     euai:imposedOn euai:Provider ;
-    euai:legalTextSnippet "Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, shall ensure that the outputs of the AI system are marked in a machine-readable format and detectab" .
+    euai:legalTextSnippet "outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated. Providers shall ensure their technical solutions are effective, interoperable, robust and reliable" .
 
 euai:ob_TechnicalDocumentation a euai:Obligation,
         euai:TechnicalDocumentationObligation ;
@@ -323,7 +328,7 @@ euai:ob_TechnicalDocumentation a euai:Obligation,
     euai:appliesToSystem euai:HighRiskAISystem ;
     euai:hasArticleReference "Article 11" ;
     euai:imposedOn euai:Provider ;
-    euai:legalTextSnippet "The technical documentation of a high-risk AI system shall be drawn up before that system is placed on the market or put into service and shall be kept up-to date. The technical documentation shall be drawn up in such a" .
+    euai:legalTextSnippet "technical documentation of a high-risk AI system shall be drawn up before that system is placed on the market or put into service and shall be kept up-to date. The technical documentation shall be drawn up in such a way" .
 
 euai:prohibitedBy a owl:ObjectProperty ;
     rdfs:label "prohibited by" ;
@@ -349,11 +354,27 @@ euai:AccuracyRobustnessObligation a owl:Class ;
     skos:definition "Duty to achieve appropriate accuracy, robustness and cybersecurity (Article 15)." ;
     euai:hasArticleReference "Article 15" .
 
+euai:AuthorisedRepresentative a owl:Class ;
+    rdfs:label "Authorised representative" ;
+    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
+    rdfs:subClassOf airo:AIOperator,
+        euai:Actor ;
+    euai:hasArticleReference "Article 3(5)" ;
+    euai:legalTextSnippet "‘authorised representative’ means a natural or legal person located or established in the Union who has received and accepted a written mandate from a provider of an AI system or a general-purpose AI model to, respective" .
+
 euai:DataGovernanceObligation a owl:Class ;
     rdfs:label "DataGovernance obligation" ;
     rdfs:subClassOf euai:Obligation ;
     skos:definition "Duty over training, validation and testing data quality and governance (Article 10)." ;
     euai:hasArticleReference "Article 10" .
+
+euai:Distributor a owl:Class ;
+    rdfs:label "Distributor" ;
+    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
+    rdfs:subClassOf airo:AIOperator,
+        euai:Actor ;
+    euai:hasArticleReference "Article 3(7)" ;
+    euai:legalTextSnippet "‘distributor’ means a natural or legal person in the supply chain, other than the provider or the importer, that makes an AI system available on the Union market; (8) ‘operator’ means a provider, product manufacturer, de" .
 
 euai:EducationAndVocationalTraining a euai:AnnexIIIDomain ;
     rdfs:label "Education and vocational training" ;
@@ -367,12 +388,20 @@ euai:EmploymentAndWorkerManagement a euai:AnnexIIIDomain ;
     euai:hasAnnexReference "Annex III(4)" ;
     euai:legalTextSnippet "Employment, workers’ management and access to self-employment: (a) AI systems intended to be used for the recruitment or selection of natural persons, in particular to place targeted job advertisements, to analyse and fi" .
 
+euai:Importer a owl:Class ;
+    rdfs:label "Importer" ;
+    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
+    rdfs:subClassOf airo:AIOperator,
+        euai:Actor ;
+    euai:hasArticleReference "Article 3(6)" ;
+    euai:legalTextSnippet "‘importer’ means a natural or legal person located or established in the Union that places on the market an AI system that bears the name or trademark of a natural or legal person established in a third country; (7) ‘dis" .
+
 euai:LimitedRisk a euai:RiskLevel ;
     rdfs:label "Limited risk" ;
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     rdfs:comment "'Limited risk' is the common term for Article 50 transparency-only systems; the term itself is from recitals, not the article body." ;
     euai:hasArticleReference "Article 50" ;
-    euai:legalTextSnippet "Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI syst" .
+    euai:legalTextSnippet "informed that they are interacting with an AI system, unless this is obvious from the point of view of a natural person who is reasonably well-informed, observant and circumspect, taking into account the circumstances an" .
 
 euai:LoggingObligation a owl:Class ;
     rdfs:label "Logging obligation" ;
@@ -385,6 +414,21 @@ euai:PostMarketMonitoringObligation a owl:Class ;
     rdfs:subClassOf euai:Obligation ;
     skos:definition "Duty to monitor systems after they are placed on the market (Article 72)." ;
     euai:hasArticleReference "Article 72" .
+
+euai:ProductSafetyHighRiskAISystem a owl:Class ;
+    rdfs:label "Product-safety high-risk AI system" ;
+    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
+    rdfs:comment "Article 6(1) product-safety route. Modelled as a stub: it depends on the Annex I product legislation, which is out of scope here." ;
+    rdfs:subClassOf euai:HighRiskAISystem ;
+    skos:definition "An AI system that is a safety component of, or is itself, a product covered by the Union harmonisation legislation in Annex I (Article 6(1)). Modelled as a stub: the Annex I product legislation is not modelled here, so this branch has no defining axiom." ;
+    euai:hasArticleReference "Article 6(1)" ;
+    euai:legalTextSnippet "intended to be used as a safety component of a product, or the AI system is itself a product, covered by the Union harmonisation legislation listed in Annex I; (b) the product whose safety component pursuant to point (a)" .
+
+euai:RepresentationObligation a owl:Class ;
+    rdfs:label "Representation obligation" ;
+    rdfs:subClassOf euai:Obligation ;
+    skos:definition "Duty of an authorised representative to perform the verification and cooperation tasks set out in the provider's written mandate." ;
+    euai:hasArticleReference "Article 22" .
 
 euai:RiskManagementObligation a owl:Class ;
     rdfs:label "RiskManagement obligation" ;
@@ -410,19 +454,38 @@ euai:operatesInDomain a owl:ObjectProperty ;
     rdfs:range euai:AnnexIIIDomain ;
     rdfs:subPropertyOf airo:isAppliedWithinDomain .
 
+euai:ConformityVerificationObligation a owl:Class ;
+    rdfs:label "ConformityVerification obligation" ;
+    rdfs:subClassOf euai:Obligation ;
+    skos:definition "Duty of importers and distributors to verify a high-risk system's conformity, CE marking and documentation before placing it on / making it available on the market." ;
+    euai:hasArticleReference "Articles 23, 24" .
+
 euai:Deployer a owl:Class ;
     rdfs:label "Deployer" ;
     dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
     rdfs:subClassOf airo:AIDeployer,
         euai:Actor ;
     euai:hasArticleReference "Article 3(4)" ;
-    euai:legalTextSnippet "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo" .
+    euai:legalTextSnippet "‘deployer’ means a natural or legal person, public authority, agency or other body using an AI system under its authority except where the AI system is used in the course of a personal non-professional activity; (5) ‘aut" .
 
 euai:HumanOversightObligation a owl:Class ;
     rdfs:label "HumanOversight obligation" ;
     rdfs:subClassOf euai:Obligation ;
     skos:definition "Duty to enable or ensure effective human oversight (Articles 14, 26)." ;
     euai:hasArticleReference "Articles 14, 26" .
+
+euai:AnnexIIIHighRiskAISystem a owl:Class ;
+    rdfs:label "Annex III high-risk AI system" ;
+    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
+    rdfs:comment "Defined class: AISystem and (operatesInDomain some AnnexIIIDomain). Membership is inferred, not asserted." ;
+    rdfs:subClassOf euai:HighRiskAISystem ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( euai:AISystem [ a owl:Restriction ;
+                        owl:onProperty euai:operatesInDomain ;
+                        owl:someValuesFrom euai:AnnexIIIDomain ] ) ] ;
+    skos:definition "An AI system that operates in one of the high-risk application areas of Annex III (Article 6(2)). Membership is inferred by a reasoner, never asserted on instances." ;
+    euai:hasArticleReference "Article 6(2)" ;
+    euai:legalTextSnippet "High-risk AI systems pursuant to Article 6(2) are the AI systems listed in any of the following areas: 1. Biometrics, in so far as their use is permitted under relevant Union or national law: (a) remote biometric identif" .
 
 euai:LimitedRiskAISystem a owl:Class ;
     rdfs:label "Limited-risk AI system" ;
@@ -442,7 +505,7 @@ euai:Actor a owl:Class ;
     rdfs:comment "Act's 'operator' == AIRO AIOperator. 'Actor' is the local umbrella for parties bearing obligations." ;
     owl:equivalentClass airo:AIOperator ;
     euai:hasArticleReference "Article 3(8)" ;
-    euai:legalTextSnippet "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo" .
+    euai:legalTextSnippet "‘operator’ means a provider, product manufacturer, deployer, authorised representative, importer or distributor; (9) ‘placing on the market’ means the first making available of an AI system or a general-purpose AI model" .
 
 euai:RiskLevel a owl:Class ;
     rdfs:label "Risk level" ;
@@ -476,20 +539,7 @@ euai:Provider a owl:Class ;
     rdfs:subClassOf airo:AIProvider,
         euai:Actor ;
     euai:hasArticleReference "Article 3(3)" ;
-    euai:legalTextSnippet "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo" .
-
-euai:HighRiskAISystem a owl:Class ;
-    rdfs:label "High-risk AI system" ;
-    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
-    rdfs:comment "Defined class: AISystem and (operatesInDomain some AnnexIIIDomain). Membership is inferred, not asserted." ;
-    rdfs:subClassOf euai:AISystem ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( euai:AISystem [ a owl:Restriction ;
-                        owl:onProperty euai:operatesInDomain ;
-                        owl:someValuesFrom euai:AnnexIIIDomain ] ) ] ;
-    skos:definition "An AI system that operates in one of the high-risk application areas of Annex III (Article 6(2)). Class membership is inferred by a reasoner, never asserted on instances." ;
-    euai:hasArticleReference "Article 6(2)" ;
-    euai:legalTextSnippet "High-risk AI systems referred to in Article 6(2) High-risk AI systems pursuant to Article 6(2) are the AI systems listed in any of the following areas: 1. Biometrics, in so far as their use is permitted under relevant Un" .
+    euai:legalTextSnippet "‘provider’ means a natural or legal person, public authority, agency or other body that develops an AI system or a general-purpose AI model or that has an AI system or a general-purpose AI model developed and places it o" .
 
 euai:AISystem a owl:Class ;
     rdfs:label "AI system" ;
@@ -498,7 +548,18 @@ euai:AISystem a owl:Class ;
     owl:equivalentClass airo:AISystem ;
     skos:definition "A machine-based system designed to operate with varying levels of autonomy, that may exhibit adaptiveness, and that infers from inputs how to generate outputs." ;
     euai:hasArticleReference "Article 3(1)" ;
-    euai:legalTextSnippet "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo" .
+    euai:legalTextSnippet "‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the inp" .
+
+euai:HighRiskAISystem a owl:Class ;
+    rdfs:label "High-risk AI system" ;
+    dcterms:source <http://data.europa.eu/eli/reg/2024/1689/oj> ;
+    rdfs:comment "Union of two routes: AnnexIIIHighRiskAISystem (Article 6(2)) and ProductSafetyHighRiskAISystem (Article 6(1))." ;
+    rdfs:subClassOf euai:AISystem ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( euai:AnnexIIIHighRiskAISystem euai:ProductSafetyHighRiskAISystem ) ] ;
+    skos:definition "An AI system that is high-risk under Article 6 — either via the Annex III application areas (Article 6(2)) or the product-safety route (Article 6(1)). Membership is inferred, never asserted on instances." ;
+    euai:hasArticleReference "Article 6" ;
+    euai:legalTextSnippet "shall be considered to be high-risk where both of the following conditions are fulfilled: (a) the AI system is intended to be used as a safety component of a product, or the AI system is itself a product, covered by the" .
 
 euai:Obligation a owl:Class ;
     rdfs:label "Obligation" ;

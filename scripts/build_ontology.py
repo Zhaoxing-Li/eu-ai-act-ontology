@@ -37,18 +37,18 @@ def snippet(c, n=220):
 
 
 def ann(c, indent="        "):
-    """Common annotation block: definition, ref, snippet, source."""
-    lines = []
+    """Common annotation block (no trailing ';' — callers add ';' or '.')."""
     ref = c.get("ref", "")
+    parts = []
     if ref.startswith("Annex"):
-        lines.append(f'{indent}euai:hasAnnexReference "{esc(ref)}" ;')
+        parts.append(f'{indent}euai:hasAnnexReference "{esc(ref)}"')
     else:
-        lines.append(f'{indent}euai:hasArticleReference "{esc(ref)}" ;')
-    lines.append(f'{indent}euai:legalTextSnippet "{snippet(c)}" ;')
-    lines.append(f'{indent}dcterms:source <{CELEX}> ;')
+        parts.append(f'{indent}euai:hasArticleReference "{esc(ref)}"')
+    parts.append(f'{indent}euai:legalTextSnippet "{snippet(c)}"')
+    parts.append(f'{indent}dcterms:source <{CELEX}>')
     if c.get("note"):
-        lines.append(f'{indent}rdfs:comment "{esc(c["note"])}" ;')
-    return "\n".join(lines)
+        parts.append(f'{indent}rdfs:comment "{esc(c["note"])}"')
+    return " ;\n".join(parts)
 
 
 P = []  # output parts
@@ -148,7 +148,7 @@ w(f"""euai:AISystem a owl:Class ;
     owl:equivalentClass airo:AISystem ;
     rdfs:label "AI system" ;
     skos:definition "A machine-based system designed to operate with varying levels of autonomy, that may exhibit adaptiveness, and that infers from inputs how to generate outputs." ;
-{ann(ai)}
+{ann(ai)} ;
     rdfs:isDefinedBy <{BASE.rstrip('#')}> .
 """)
 
@@ -168,17 +168,35 @@ w("""euai:LimitedRiskAISystem a owl:Class ;
 """)
 
 hr = by_name["HighRiskAISystem"]
-w(f"""# --- The key axiom: HighRiskAISystem is a DEFINED class (membership is inferred) ---
-euai:HighRiskAISystem a owl:Class ;
+annex3 = by_name["AnnexIIIHighRiskAISystem"]
+prodsafe = by_name["ProductSafetyHighRiskAISystem"]
+w(f"""# --- Article 6(2): the Annex III route is a DEFINED class (membership is inferred) ---
+euai:AnnexIIIHighRiskAISystem a owl:Class ;
     owl:equivalentClass [ a owl:Class ;
         owl:intersectionOf ( euai:AISystem
             [ a owl:Restriction ;
               owl:onProperty euai:operatesInDomain ;
               owl:someValuesFrom euai:AnnexIIIDomain ] ) ] ;
+    rdfs:subClassOf euai:HighRiskAISystem ;
+    rdfs:label "Annex III high-risk AI system" ;
+    skos:definition "An AI system that operates in one of the high-risk application areas of Annex III (Article 6(2)). Membership is inferred by a reasoner, never asserted on instances." ;
+{ann(annex3, indent='    ')} .
+
+# --- Article 6(1): the product-safety route, modelled as a stub ---
+euai:ProductSafetyHighRiskAISystem a owl:Class ;
+    rdfs:subClassOf euai:HighRiskAISystem ;
+    rdfs:label "Product-safety high-risk AI system" ;
+    skos:definition "An AI system that is a safety component of, or is itself, a product covered by the Union harmonisation legislation in Annex I (Article 6(1)). Modelled as a stub: the Annex I product legislation is not modelled here, so this branch has no defining axiom." ;
+{ann(prodsafe, indent='    ')} .
+
+# --- High-risk is the UNION of the two routes (Article 6) ---
+euai:HighRiskAISystem a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+        owl:unionOf ( euai:AnnexIIIHighRiskAISystem euai:ProductSafetyHighRiskAISystem ) ] ;
     rdfs:subClassOf euai:AISystem ;
     rdfs:label "High-risk AI system" ;
-    skos:definition "An AI system that operates in one of the high-risk application areas of Annex III (Article 6(2)). Class membership is inferred by a reasoner, never asserted on instances." ;
-{ann(hr)} .
+    skos:definition "An AI system that is high-risk under Article 6 — either via the Annex III application areas (Article 6(2)) or the product-safety route (Article 6(1)). Membership is inferred, never asserted on instances." ;
+{ann(hr, indent='    ')} .
 """)
 
 # ---------------------------------------------------------------- actors
@@ -281,6 +299,8 @@ OBLIG_SUBCLASSES = {
     "HumanOversightObligation": ("Articles 14, 26", "Duty to enable or ensure effective human oversight (Articles 14, 26)."),
     "PostMarketMonitoringObligation": ("Article 72", "Duty to monitor systems after they are placed on the market (Article 72)."),
     "AccuracyRobustnessObligation": ("Article 15", "Duty to achieve appropriate accuracy, robustness and cybersecurity (Article 15)."),
+    "ConformityVerificationObligation": ("Articles 23, 24", "Duty of importers and distributors to verify a high-risk system's conformity, CE marking and documentation before placing it on / making it available on the market."),
+    "RepresentationObligation": ("Article 22", "Duty of an authorised representative to perform the verification and cooperation tasks set out in the provider's written mandate."),
 }
 for sub, (ref, defn) in OBLIG_SUBCLASSES.items():
     w(f"""euai:{sub} a owl:Class ;

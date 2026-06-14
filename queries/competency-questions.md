@@ -8,7 +8,7 @@ after reasoning. Each CQ names the governing provision of Regulation (EU)
 | CQ | Question | Governing provision | Query |
 |----|----------|---------------------|-------|
 | CQ1 | Which AI practices are prohibited, and which article prohibits each? | Article 5 | `cq1.rq` |
-| CQ2 | Which obligations apply to providers of high-risk AI systems? | Articles 9–17 | `cq2.rq` |
+| CQ2 | Which obligations apply to providers of high-risk AI systems? | Articles 9–15 (requirements) and 72 (post-market monitoring) | `cq2.rq` |
 | CQ3 | Which actors bear obligations regarding high-risk AI systems, and which obligation does each bear? | Articles 16, 22, 23, 24, 26 | `cq3.rq` |
 | CQ4 | Which AI systems are (inferred to be) high-risk, and via which Annex III domain? | Article 6(2), Annex III | `cq4.rq` |
 | CQ5 | Which transparency obligations apply to providers/deployers of certain (limited-risk) AI systems? | Article 50 | `cq5.rq` |

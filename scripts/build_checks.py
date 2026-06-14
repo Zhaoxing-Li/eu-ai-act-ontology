@@ -77,14 +77,16 @@ def reason_and_materialise():
             iri = getattr(cls, "iri", None)
             if not iri or not iri.startswith(BASE):
                 continue
-            if iri.endswith("#HighRiskAISystem"):
+            # The directly-inferred class is AnnexIIIHighRiskAISystem (Art 6(2)
+            # route), a subclass of HighRiskAISystem.
+            if iri.endswith("#HighRiskAISystem") or iri.endswith("#AnnexIIIHighRiskAISystem"):
                 got_high.add(str(s).split("#")[-1])
             if (s, RDF.type, URIRef(iri)) not in g:
                 g.add((s, RDF.type, URIRef(iri)))
                 inferred += 1
     ok_pos = EXPECT_HIGH_RISK <= got_high
     ok_neg = not (EXPECT_NOT_HIGH_RISK & got_high)
-    print(f"    inferred HighRiskAISystem: {sorted(got_high)}")
+    print(f"    inferred high-risk (Annex III route): {sorted(got_high)}")
     assert ok_pos, f"expected {EXPECT_HIGH_RISK} to be high-risk"
     assert ok_neg, f"{EXPECT_NOT_HIGH_RISK} must NOT be high-risk"
     print("    inference expectations: PASS")
@@ -124,10 +126,12 @@ def metrics(reasoned):
         "owl_classes": len(set(asserted.subjects(RDF.type, OWL.Class))),
         "object_properties": len(set(asserted.subjects(RDF.type, OWL.ObjectProperty))),
         "annotation_properties": len(set(asserted.subjects(RDF.type, OWL.AnnotationProperty))),
-        "named_individuals": len({s for s in asserted.subjects(RDF.type, None)
-                                  if str(s).startswith(BASE)
-                                  and (s, RDF.type, OWL.Class) not in asserted
-                                  and not str(s).split("#")[-1][0].islower()}),
+        "named_individuals": len({
+            s for s, _, o in asserted.triples((None, RDF.type, None))
+            if str(s).startswith(BASE) and isinstance(o, URIRef) and str(o).startswith(BASE)
+            and (s, RDF.type, OWL.Class) not in asserted
+            and (s, RDF.type, OWL.ObjectProperty) not in asserted
+            and (s, RDF.type, OWL.AnnotationProperty) not in asserted}),
         "airo_alignment_axioms": len([1 for s, p, o in asserted
                                       if isinstance(o, URIRef) and "w3id.org/airo" in str(o)
                                       and p in (RDFS.subClassOf, OWL.equivalentClass, RDFS.subPropertyOf)]),

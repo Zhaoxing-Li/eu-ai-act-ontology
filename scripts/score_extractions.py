@@ -1,16 +1,17 @@
-"""Conformal, calibrated gating of the human-review decision.
+"""Illustrative conformal-style gating of the human-review decision.
 
 Instead of hand-set high/review flags, each extraction candidate gets an
-interpretable confidence score, and a split-conformal / Learn-then-Test (LTT)
-threshold decides which candidates are auto-accepted and which are routed to a
-human. The threshold carries a distribution-free guarantee: the auto-accepted
-set has false-acceptance risk <= alpha with confidence 1 - delta.
+interpretable confidence score, and a split-conformal threshold decides which
+candidates are auto-accepted and which are routed to a human. Under the stated
+calibration setup the threshold gives a distribution-free *coverage* statement (a
+genuinely-correct candidate is auto-accepted with probability >= 1 - alpha).
 
-This embeds uncertainty quantification directly into the pipeline's gating
-logic. It is a proof of concept: the calibration set is small and uses
-synthesised hard negatives, so the bound is illustrative, not production grade.
-The same mechanism generalises to a multi-agent Extractor / Modeller / Critic
-setup where the Critic's adversarial refutation rate is the nonconformity score.
+This is a proof of concept, not a production-grade or legal-correctness
+guarantee: the calibration set is small and uses synthesised hard negatives, so
+the numbers are illustrative. The point is the mechanism — uncertainty
+quantification plugged into the human-in-the-loop gate. It generalises to a
+multi-agent Extractor / Modeller / Critic setup where the Critic's adversarial
+refutation rate is the nonconformity score.
 
 Refs: Vovk, Gammerman, Shafer (conformal prediction); Angelopoulos, Bates,
 Candes, Jordan, Malik (Learn-then-Test, 2021).
@@ -135,11 +136,12 @@ def main():
     heuristic_review = sorted(c["name"] for c in CANDS if c["flag"] == "review")
     # Report
     lines = [
-        "# Calibrated, conformal review gating", "",
+        "# Illustrative conformal-style review gating", "",
         "Instead of hand-set high/review flags, every extraction candidate gets an "
         "interpretable confidence score, and a split-conformal threshold decides "
-        "which are auto-accepted and which are routed to a human. This embeds "
-        "uncertainty quantification directly into the human-in-the-loop gate.", "",
+        "which are auto-accepted and which are routed to a human. The aim is to show "
+        "how uncertainty quantification can drive the human-in-the-loop gate — it is "
+        "a proof of concept, **not** a guarantee of legal correctness.", "",
         "## Method", "",
         "- **Score.** A transparent logistic score over four grounding-quality "
         "features: verbatim anchor match, article-body (vs recital) grounding, "
@@ -147,13 +149,15 @@ def main():
         "noted-uncertain/paraphrased) mapping.",
         f"- **Calibration set.** {len(cal)} examples: {len(CANDS)} source-grounded "
         f"positives plus {len(cal)-len(CANDS)} synthesised hard negatives "
-        "(mis-grounded extractions the gate must catch).",
+        "(mis-grounded extractions the gate should catch).",
         f"- **Split-conformal threshold.** tau = the finite-sample alpha-quantile "
         f"(alpha={ALPHA}) of the positive scores: tau = {tau:.3f}.",
-        f"- **Guarantee (Vovk et al.).** A genuinely-correct candidate is "
-        f"auto-accepted with probability >= 1 - alpha = {1-ALPHA:.2f}; the rest are "
-        "sent to a human. The threshold is one point on a tunable risk-coverage "
-        "curve, not a fixed ad-hoc rule.",
+        f"- **Coverage statement (under this calibration setup).** A genuinely-"
+        f"correct candidate is auto-accepted with probability >= 1 - alpha = "
+        f"{1-ALPHA:.2f} (split-conformal, Vovk et al.). With a small, partly "
+        "synthetic calibration set this is illustrative rather than a strong "
+        "production-grade bound — the threshold is one point on a tunable "
+        "risk-coverage curve, not a fixed ad-hoc rule.",
         "",
         "## Risk-coverage curve (tunable alpha)", "",
         "| alpha | # routed to human review | candidates |",

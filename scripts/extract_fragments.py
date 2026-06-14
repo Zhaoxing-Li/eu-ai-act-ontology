@@ -29,11 +29,10 @@ def span_for(seg_id: str, anchor: str, window: int = 260) -> str:
     i = flat.find(a)
     if i == -1:
         return ""
-    # Extend to a sentence-ish window around the anchor.
-    start = flat.rfind(".", 0, i)
-    start = 0 if start == -1 else start + 1
+    # Start the snippet exactly at the anchor (the operative phrase) rather than
+    # backing up to the previous sentence, so each span lands on its own provision.
     end = i + len(a) + window
-    return flat[start:end].strip()[: window + len(a)]
+    return flat[i:end].strip()
 
 
 # --- The LLM extraction: (kind, local name, label, ref, segment, anchor, align, flag, note) ---
@@ -41,35 +40,43 @@ def span_for(seg_id: str, anchor: str, window: int = 260) -> str:
 CANDIDATES = [
     # ---- AI system classes ----
     dict(kind="class", name="AISystem", label="AI system", ref="Article 3(1)",
-         seg="Article 3", anchor="machine-based system that is designed to operate with varying levels of autonomy",
+         seg="Article 3", anchor="‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy",
          align="airo:AISystem", rel="equivalentClass", flag="high"),
     dict(kind="class", name="GeneralPurposeAIModel", label="General-purpose AI model", ref="Article 3(63)",
-         seg="Article 3", anchor="trained with a large amount of data using self-supervision at scale",
+         seg="Article 3", anchor="‘general-purpose AI model’ means an AI model",
          align="airo:GPAIModel", rel="subClassOf", flag="high"),
-    dict(kind="class", name="HighRiskAISystem", label="High-risk AI system", ref="Article 6(2)",
+    dict(kind="class", name="HighRiskAISystem", label="High-risk AI system", ref="Article 6",
+         seg="Article 6", anchor="shall be considered to be high-risk",
+         align=None, rel="union", flag="high",
+         note="Union of two routes: AnnexIIIHighRiskAISystem (Article 6(2)) and ProductSafetyHighRiskAISystem (Article 6(1))."),
+    dict(kind="class", name="AnnexIIIHighRiskAISystem", label="Annex III high-risk AI system", ref="Article 6(2)",
          seg="Annex III", anchor="High-risk AI systems pursuant to Article 6(2) are the AI systems listed",
          align=None, rel="defined", flag="high",
          note="Defined class: AISystem and (operatesInDomain some AnnexIIIDomain). Membership is inferred, not asserted."),
+    dict(kind="class", name="ProductSafetyHighRiskAISystem", label="Product-safety high-risk AI system", ref="Article 6(1)",
+         seg="Article 6", anchor="intended to be used as a safety component of a product, or the AI system is itself a product, covered by the Union harmonisation legislation listed in Annex I",
+         align=None, rel="stub", flag="review",
+         note="Article 6(1) product-safety route. Modelled as a stub: it depends on the Annex I product legislation, which is out of scope here."),
 
-    # ---- Actors ----
+    # ---- Actors (definitions anchored at their numbered term in Article 3) ----
     dict(kind="class", name="Actor", label="Actor", ref="Article 3(8)",
-         seg="Article 3", anchor="means a provider, product manufacturer, deployer, authorised representative, importer or distributor",
+         seg="Article 3", anchor="‘operator’ means a provider, product manufacturer, deployer, authorised representative, importer or distributor",
          align="airo:AIOperator", rel="equivalentClass", flag="high",
          note="Act's 'operator' == AIRO AIOperator. 'Actor' is the local umbrella for parties bearing obligations."),
     dict(kind="class", name="Provider", label="Provider", ref="Article 3(3)",
-         seg="Article 3", anchor="that develops an AI system or a general-purpose AI model",
+         seg="Article 3", anchor="‘provider’ means a natural or legal person, public authority, agency or other body that develops an AI system",
          align="airo:AIProvider", rel="subClassOf", flag="high"),
     dict(kind="class", name="Deployer", label="Deployer", ref="Article 3(4)",
-         seg="Article 3", anchor="using an AI system under its authority",
+         seg="Article 3", anchor="‘deployer’ means a natural or legal person, public authority, agency or other body using an AI system under its authority",
          align="airo:AIDeployer", rel="subClassOf", flag="high"),
     dict(kind="class", name="Importer", label="Importer", ref="Article 3(6)",
-         seg="Article 3", anchor="located or established in the Union that places on the market an AI system that bears the name or trademark",
+         seg="Article 3", anchor="‘importer’ means a natural or legal person located or established in the Union that places on the market an AI system",
          align="airo:AIOperator", rel="subClassOf", flag="high"),
     dict(kind="class", name="Distributor", label="Distributor", ref="Article 3(7)",
-         seg="Article 3", anchor="in the supply chain, other than the provider or the importer, that makes an AI system available",
+         seg="Article 3", anchor="‘distributor’ means a natural or legal person in the supply chain, other than the provider or the importer",
          align="airo:AIOperator", rel="subClassOf", flag="high"),
     dict(kind="class", name="AuthorisedRepresentative", label="Authorised representative", ref="Article 3(5)",
-         seg="Article 3", anchor="who has received and accepted a written mandate from a provider",
+         seg="Article 3", anchor="‘authorised representative’ means a natural or legal person located or established in the Union who has received and accepted a written mandate from a provider",
          align="airo:AIOperator", rel="subClassOf", flag="high"),
     dict(kind="class", name="MarketSurveillanceAuthority", label="Market surveillance authority", ref="Article 70",
          seg="Article 70", anchor="market surveillance",
@@ -153,6 +160,16 @@ CANDIDATES = [
     dict(kind="obligation", name="ob_DeployerHumanOversight", label="Deployer human oversight obligation", otype="HumanOversightObligation",
          imposed_on="Deployer", applies_to="HighRiskAISystem", ref="Article 26", seg="Article 26",
          anchor="assign human oversight to natural persons who have the necessary competence", flag="high"),
+    # Value-chain actor obligations (importer, distributor, authorised representative)
+    dict(kind="obligation", name="ob_ImporterConformity", label="Importer conformity verification", otype="ConformityVerificationObligation",
+         imposed_on="Importer", applies_to="HighRiskAISystem", ref="Article 23", seg="Article 23",
+         anchor="Before placing a high-risk AI system on the market, importers shall ensure that the system is in conformity", flag="high"),
+    dict(kind="obligation", name="ob_DistributorVerification", label="Distributor verification", otype="ConformityVerificationObligation",
+         imposed_on="Distributor", applies_to="HighRiskAISystem", ref="Article 24", seg="Article 24",
+         anchor="Before making a high-risk AI system available on the market, distributors shall verify", flag="high"),
+    dict(kind="obligation", name="ob_AuthRepTasks", label="Authorised representative mandate tasks", otype="RepresentationObligation",
+         imposed_on="AuthorisedRepresentative", applies_to="HighRiskAISystem", ref="Article 22", seg="Article 22",
+         anchor="The authorised representative shall perform the", flag="high"),
     # Article 50 transparency obligations (limited-risk / user-facing)
     dict(kind="obligation", name="ob_AIInteractionDisclosure", label="AI interaction disclosure", otype="TransparencyObligation",
          imposed_on="Provider", applies_to="LimitedRiskAISystem", ref="Article 50(1)", seg="Article 50",

@@ -5,11 +5,11 @@
     "label": "AI system",
     "ref": "Article 3(1)",
     "seg": "Article 3",
-    "anchor": "machine-based system that is designed to operate with varying levels of autonomy",
+    "anchor": "‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy",
     "align": "airo:AISystem",
     "rel": "equivalentClass",
     "flag": "high",
-    "source_span": "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such a",
+    "source_span": "‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual e",
     "decision": "accept"
   },
   {
@@ -18,17 +18,31 @@
     "label": "General-purpose AI model",
     "ref": "Article 3(63)",
     "seg": "Article 3",
-    "anchor": "trained with a large amount of data using self-supervision at scale",
+    "anchor": "‘general-purpose AI model’ means an AI model",
     "align": "airo:GPAIModel",
     "rel": "subClassOf",
     "flag": "high",
-    "source_span": "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to generate o",
+    "source_span": "‘general-purpose AI model’ means an AI model, including where such an AI model is trained with a large amount of data using self-supervision at scale, that displays significant generality and is capable of competently performing a wide range of distinct tasks regardless of the way the model is placed on",
     "decision": "accept"
   },
   {
     "kind": "class",
     "name": "HighRiskAISystem",
     "label": "High-risk AI system",
+    "ref": "Article 6",
+    "seg": "Article 6",
+    "anchor": "shall be considered to be high-risk",
+    "align": null,
+    "rel": "union",
+    "flag": "high",
+    "note": "Union of two routes: AnnexIIIHighRiskAISystem (Article 6(2)) and ProductSafetyHighRiskAISystem (Article 6(1)).",
+    "source_span": "shall be considered to be high-risk where both of the following conditions are fulfilled: (a) the AI system is intended to be used as a safety component of a product, or the AI system is itself a product, covered by the Union harmonisation legislation listed in Annex I; (b) the product whose sa",
+    "decision": "accept"
+  },
+  {
+    "kind": "class",
+    "name": "AnnexIIIHighRiskAISystem",
+    "label": "Annex III high-risk AI system",
     "ref": "Article 6(2)",
     "seg": "Annex III",
     "anchor": "High-risk AI systems pursuant to Article 6(2) are the AI systems listed",
@@ -36,7 +50,21 @@
     "rel": "defined",
     "flag": "high",
     "note": "Defined class: AISystem and (operatesInDomain some AnnexIIIDomain). Membership is inferred, not asserted.",
-    "source_span": "High-risk AI systems referred to in Article 6(2) High-risk AI systems pursuant to Article 6(2) are the AI systems listed in any of the following areas: 1. Biometrics, in so far as their use is permitted under relevant Union or national law: (a) remote biometric identification systems. This shall not include AI systems intended to",
+    "source_span": "High-risk AI systems pursuant to Article 6(2) are the AI systems listed in any of the following areas: 1. Biometrics, in so far as their use is permitted under relevant Union or national law: (a) remote biometric identification systems. This shall not include AI systems intended to be used for biometric verification the sole purp",
+    "decision": "accept"
+  },
+  {
+    "kind": "class",
+    "name": "ProductSafetyHighRiskAISystem",
+    "label": "Product-safety high-risk AI system",
+    "ref": "Article 6(1)",
+    "seg": "Article 6",
+    "anchor": "intended to be used as a safety component of a product, or the AI system is itself a product, covered by the Union harmonisation legislation listed in Annex I",
+    "align": null,
+    "rel": "stub",
+    "flag": "review",
+    "note": "Article 6(1) product-safety route. Modelled as a stub: it depends on the Annex I product legislation, which is out of scope here.",
+    "source_span": "intended to be used as a safety component of a product, or the AI system is itself a product, covered by the Union harmonisation legislation listed in Annex I; (b) the product whose safety component pursuant to point (a) is the AI system, or the AI system itself as a product, is required to undergo a third-party conformity assessment, with a view to the placing on the market or the putting into service of that prod",
     "decision": "accept"
   },
   {
@@ -45,12 +73,12 @@
     "label": "Actor",
     "ref": "Article 3(8)",
     "seg": "Article 3",
-    "anchor": "means a provider, product manufacturer, deployer, authorised representative, importer or distributor",
+    "anchor": "‘operator’ means a provider, product manufacturer, deployer, authorised representative, importer or distributor",
     "align": "airo:AIOperator",
     "rel": "equivalentClass",
     "flag": "high",
     "note": "Act's 'operator' == AIRO AIOperator. 'Actor' is the local umbrella for parties bearing obligations.",
-    "source_span": "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, conte",
+    "source_span": "‘operator’ means a provider, product manufacturer, deployer, authorised representative, importer or distributor; (9) ‘placing on the market’ means the first making available of an AI system or a general-purpose AI model on the Union market; (10) ‘making available on the market’ means the supply of an AI system or a general-purpose AI model for distribution or use on th",
     "decision": "accept"
   },
   {
@@ -59,11 +87,11 @@
     "label": "Provider",
     "ref": "Article 3(3)",
     "seg": "Article 3",
-    "anchor": "that develops an AI system or a general-purpose AI model",
+    "anchor": "‘provider’ means a natural or legal person, public authority, agency or other body that develops an AI system",
     "align": "airo:AIProvider",
     "rel": "subClassOf",
     "flag": "high",
-    "source_span": "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to",
+    "source_span": "‘provider’ means a natural or legal person, public authority, agency or other body that develops an AI system or a general-purpose AI model or that has an AI system or a general-purpose AI model developed and places it on the market or puts the AI system into service under its own name or trademark, whether for payment or free of charge; (4) ‘deployer’ means a natura",
     "decision": "accept"
   },
   {
@@ -72,11 +100,11 @@
     "label": "Deployer",
     "ref": "Article 3(4)",
     "seg": "Article 3",
-    "anchor": "using an AI system under its authority",
+    "anchor": "‘deployer’ means a natural or legal person, public authority, agency or other body using an AI system under its authority",
     "align": "airo:AIDeployer",
     "rel": "subClassOf",
     "flag": "high",
-    "source_span": "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input i",
+    "source_span": "‘deployer’ means a natural or legal person, public authority, agency or other body using an AI system under its authority except where the AI system is used in the course of a personal non-professional activity; (5) ‘authorised representative’ means a natural or legal person located or established in the Union who has received and accepted a written mandate from a provider of an",
     "decision": "accept"
   },
   {
@@ -85,11 +113,11 @@
     "label": "Importer",
     "ref": "Article 3(6)",
     "seg": "Article 3",
-    "anchor": "located or established in the Union that places on the market an AI system that bears the name or trademark",
+    "anchor": "‘importer’ means a natural or legal person located or established in the Union that places on the market an AI system",
     "align": "airo:AIOperator",
     "rel": "subClassOf",
     "flag": "high",
-    "source_span": "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, rec",
+    "source_span": "‘importer’ means a natural or legal person located or established in the Union that places on the market an AI system that bears the name or trademark of a natural or legal person established in a third country; (7) ‘distributor’ means a natural or legal person in the supply chain, other than the provider or the importer, that makes an AI system available on the Union market",
     "decision": "accept"
   },
   {
@@ -98,11 +126,11 @@
     "label": "Distributor",
     "ref": "Article 3(7)",
     "seg": "Article 3",
-    "anchor": "in the supply chain, other than the provider or the importer, that makes an AI system available",
+    "anchor": "‘distributor’ means a natural or legal person in the supply chain, other than the provider or the importer",
     "align": "airo:AIOperator",
     "rel": "subClassOf",
     "flag": "high",
-    "source_span": "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, ",
+    "source_span": "‘distributor’ means a natural or legal person in the supply chain, other than the provider or the importer, that makes an AI system available on the Union market; (8) ‘operator’ means a provider, product manufacturer, deployer, authorised representative, importer or distributor; (9) ‘placing on the market’ means the first making available of an AI system or a gene",
     "decision": "accept"
   },
   {
@@ -111,11 +139,11 @@
     "label": "Authorised representative",
     "ref": "Article 3(5)",
     "seg": "Article 3",
-    "anchor": "who has received and accepted a written mandate from a provider",
+    "anchor": "‘authorised representative’ means a natural or legal person located or established in the Union who has received and accepted a written mandate from a provider",
     "align": "airo:AIOperator",
     "rel": "subClassOf",
     "flag": "high",
-    "source_span": "For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to genera",
+    "source_span": "‘authorised representative’ means a natural or legal person located or established in the Union who has received and accepted a written mandate from a provider of an AI system or a general-purpose AI model to, respectively, perform and carry out on its behalf the obligations and procedures established by this Regulation; (6) ‘importer’ means a natural or legal person located or established in the Union that places o",
     "decision": "accept"
   },
   {
@@ -129,7 +157,7 @@
     "rel": "subClassOf",
     "flag": "review",
     "note": "An authority, not an 'operator'. Aligned to airo:Stakeholder rather than airo:AIOperator. Confirm scope.",
-    "source_span": "Each Member State shall establish or designate as national competent authorities at least one notifying authority and at least one market surveillance authority for the purposes of this Regulation. Those national competent authorities shall exercise their powers independently, i",
+    "source_span": "market surveillance authority for the purposes of this Regulation. Those national competent authorities shall exercise their powers independently, impartially and without bias so as to safeguard the objectivity of their activities and tasks, and to ensure the application and imp",
     "decision": "accept"
   },
   {
@@ -151,7 +179,7 @@
     "seg": "Article 6",
     "anchor": "high-risk",
     "flag": "high",
-    "source_span": "Irrespective of whether an AI system is placed on the market or put into service independently of the products referred to in points (a) and (b), that AI system shall be considered to be high-risk where both of the following conditions are fulfilled: (a) the AI system ",
+    "source_span": "high-risk where both of the following conditions are fulfilled: (a) the AI system is intended to be used as a safety component of a product, or the AI system is itself a product, covered by the Union harmonisation legislation listed in Annex I; (b) the product whose sa",
     "decision": "accept"
   },
   {
@@ -163,7 +191,7 @@
     "anchor": "informed that they are interacting with an AI system",
     "flag": "review",
     "note": "'Limited risk' is the common term for Article 50 transparency-only systems; the term itself is from recitals, not the article body.",
-    "source_span": "Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI system, unless this is obvious from the point of view of a natural person who is reasonably well",
+    "source_span": "informed that they are interacting with an AI system, unless this is obvious from the point of view of a natural person who is reasonably well-informed, observant and circumspect, taking into account the circumstances and the context of use. This obligation shall not apply to AI systems authorised by law to det",
     "decision": "accept"
   },
   {
@@ -175,7 +203,7 @@
     "anchor": "codes of conduct",
     "flag": "review",
     "note": "'Minimal risk' is a recital-level category (voluntary codes of conduct, Art 95). No span in the articles; flagged.",
-    "source_span": "The AI Office and the Member States shall encourage and facilitate the drawing up of codes of conduct, including related governance mechanisms, intended to foster the voluntary application to AI systems, other than high-risk AI systems, of some or all of the requirements set ",
+    "source_span": "codes of conduct, including related governance mechanisms, intended to foster the voluntary application to AI systems, other than high-risk AI systems, of some or all of the requirements set out in Chapter III, Section 2 taking into account the available technical solutions a",
     "decision": "accept"
   },
   {
@@ -186,7 +214,7 @@
     "seg": "Article 5",
     "anchor": "deploys subliminal techniques beyond a person",
     "flag": "high",
-    "source_span": "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipulative or deceptive techniques, with the objective, or the effect of materially disto",
+    "source_span": "deploys subliminal techniques beyond a person’s consciousness or purposefully manipulative or deceptive techniques, with the objective, or the effect of materially distorting the behaviour of a person or a group of persons by appreciably impairing their ability to make an informed decision, thereby causi",
     "decision": "accept"
   },
   {
@@ -197,7 +225,7 @@
     "seg": "Article 5",
     "anchor": "exploits any of the vulnerabilities of a natural person or a specific group of persons",
     "flag": "high",
-    "source_span": "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipulative or deceptive techniques, with the objective, or the effect of materially distorting the behaviour of a person or a grou",
+    "source_span": "exploits any of the vulnerabilities of a natural person or a specific group of persons due to their age, disability or a specific social or economic situation, with the objective, or the effect, of materially distorting the behaviour of that person or a person belonging to that group in a manner that causes or is reasonably likely to cause that",
     "decision": "accept"
   },
   {
@@ -208,7 +236,7 @@
     "seg": "Article 5",
     "anchor": "evaluation or classification of natural persons or groups of persons over a certain period of time",
     "flag": "high",
-    "source_span": "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipulative or deceptive techniques, with the objective, or the effect of materially distorting the behaviour of a person or a group of persons",
+    "source_span": "evaluation or classification of natural persons or groups of persons over a certain period of time based on their social behaviour or known, inferred or predicted personal or personality characteristics, with the social score leading to either or both of the following: (i) detrimental or unfavourable treatment of certain natural persons or groups of person",
     "decision": "accept"
   },
   {
@@ -219,7 +247,7 @@
     "seg": "Article 5",
     "anchor": "risk assessments of natural persons in order to assess or predict the risk",
     "flag": "high",
-    "source_span": "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipulative or deceptive techniques, with the objective, or the effect of materially distorting the behaviour of a pers",
+    "source_span": "risk assessments of natural persons in order to assess or predict the risk of a natural person committing a criminal offence, based solely on the profiling of a natural person or on assessing their personality traits and characteristics; this prohibition shall not apply to AI systems used to support the human assessment of the invol",
     "decision": "accept"
   },
   {
@@ -230,7 +258,7 @@
     "seg": "Article 5",
     "anchor": "create or expand facial recognition databases through the untargeted scraping",
     "flag": "high",
-    "source_span": "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipulative or deceptive techniques, with the objective, or the effect of materially distorting the behaviour of a person ",
+    "source_span": "create or expand facial recognition databases through the untargeted scraping of facial images from the internet or CCTV footage; (f) the placing on the market, the putting into service for this specific purpose, or the use of AI systems to infer emotions of a natural person in the areas of workplace and education institutions, except",
     "decision": "accept"
   },
   {
@@ -241,7 +269,7 @@
     "seg": "Article 5",
     "anchor": "infer emotions of a natural person in the areas of workplace and education",
     "flag": "high",
-    "source_span": "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipulative or deceptive techniques, with the objective, or the effect of materially distorting the behaviour of a pers",
+    "source_span": "infer emotions of a natural person in the areas of workplace and education institutions, except where the use of the AI system is intended to be put in place or into the market for medical or safety reasons; (g) the placing on the market, the putting into service for this specific purpose, or the use of biometric categorisation syst",
     "decision": "accept"
   },
   {
@@ -252,7 +280,7 @@
     "seg": "Article 5",
     "anchor": "biometric categorisation systems that categorise individually natural persons based on their biometric data",
     "flag": "high",
-    "source_span": "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipulative or deceptive techniques, with the objective, or the effect of materially distorting the behaviour of a person or a group of persons by appre",
+    "source_span": "biometric categorisation systems that categorise individually natural persons based on their biometric data to deduce or infer their race, political opinions, trade union membership, religious or philosophical beliefs, sex life or sexual orientation; this prohibition does not cover any labelling or filtering of lawfully acquired biometric datasets, such as images,",
     "decision": "accept"
   },
   {
@@ -264,7 +292,7 @@
     "anchor": "real-time",
     "flag": "review",
     "note": "Conditional prohibition (permitted under narrow exceptions). Modelled as prohibited; the exceptions are out of scope for the PoC.",
-    "source_span": "The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipulative or deceptive techniques, with the objectiv",
+    "source_span": "real-time’ remote biometric identification systems in publicly accessible spaces for the purposes of law enforcement, unless and in so far as such use is strictly necessary for one of the following objectives: (i) the targeted search for specific victims of abduction,",
     "decision": "accept"
   },
   {
@@ -319,7 +347,7 @@
     "seg": "Annex III",
     "anchor": "essential private services and essential public services and benefits",
     "flag": "high",
-    "source_span": "Access to and enjoyment of essential private services and essential public services and benefits: (a) AI systems intended to be used by public authorities or on behalf of public authorities to evaluate the eligibility of natural persons for essential public assistance benefits and services, including healthcare services, as wel",
+    "source_span": "essential private services and essential public services and benefits: (a) AI systems intended to be used by public authorities or on behalf of public authorities to evaluate the eligibility of natural persons for essential public assistance benefits and services, including healthcare services, as well as to grant, reduce, revo",
     "decision": "accept"
   },
   {
@@ -366,7 +394,7 @@
     "seg": "Article 9",
     "anchor": "risk management system shall be established",
     "flag": "high",
-    "source_span": "A risk management system shall be established, implemented, documented and maintained in relation to high-risk AI systems. 2. The risk management system shall be understood as a continuous iterative process planned and run throughout the entire lifecycle of a high-risk AI system, requiring regular syst",
+    "source_span": "risk management system shall be established, implemented, documented and maintained in relation to high-risk AI systems. 2. The risk management system shall be understood as a continuous iterative process planned and run throughout the entire lifecycle of a high-risk AI system, requiring regular system",
     "decision": "accept"
   },
   {
@@ -380,7 +408,7 @@
     "seg": "Article 10",
     "anchor": "shall be subject to data governance and management practices appropriate for the intended purpose",
     "flag": "high",
-    "source_span": "Training, validation and testing data sets shall be subject to data governance and management practices appropriate for the intended purpose of the high-risk AI system. Those practices shall concern in particular: (a) the relevant design choices; (b) data collection processes and the origin of data, and in the case of personal data, the original purpose o",
+    "source_span": "shall be subject to data governance and management practices appropriate for the intended purpose of the high-risk AI system. Those practices shall concern in particular: (a) the relevant design choices; (b) data collection processes and the origin of data, and in the case of personal data, the original purpose of the data collection; (c) relevant data-pr",
     "decision": "accept"
   },
   {
@@ -394,7 +422,7 @@
     "seg": "Article 11",
     "anchor": "technical documentation of a high-risk AI system shall be drawn up",
     "flag": "high",
-    "source_span": "The technical documentation of a high-risk AI system shall be drawn up before that system is placed on the market or put into service and shall be kept up-to date. The technical documentation shall be drawn up in such a way as to demonstrate that the high-risk AI system complies with the requirements set out in this Section ",
+    "source_span": "technical documentation of a high-risk AI system shall be drawn up before that system is placed on the market or put into service and shall be kept up-to date. The technical documentation shall be drawn up in such a way as to demonstrate that the high-risk AI system complies with the requirements set out in this Section and",
     "decision": "accept"
   },
   {
@@ -408,7 +436,7 @@
     "seg": "Article 12",
     "anchor": "technically allow for the automatic recording of events",
     "flag": "high",
-    "source_span": "High-risk AI systems shall technically allow for the automatic recording of events (logs) over the lifetime of the system. 2. In order to ensure a level of traceability of the functioning of a high-risk AI system that is appropriate to the intended purpose of the system, logging capabilities shall enable the recor",
+    "source_span": "technically allow for the automatic recording of events (logs) over the lifetime of the system. 2. In order to ensure a level of traceability of the functioning of a high-risk AI system that is appropriate to the intended purpose of the system, logging capabilities shall enable the recording of events relevant for",
     "decision": "accept"
   },
   {
@@ -422,7 +450,7 @@
     "seg": "Article 13",
     "anchor": "designed and developed in such a way as to ensure that their operation is sufficiently transparent",
     "flag": "high",
-    "source_span": "High-risk AI systems shall be designed and developed in such a way as to ensure that their operation is sufficiently transparent to enable deployers to interpret a system’s output and use it appropriately. An appropriate type and degree of transparency shall be ensured with a view to achieving compliance with the relevant obligations of the provider and de",
+    "source_span": "designed and developed in such a way as to ensure that their operation is sufficiently transparent to enable deployers to interpret a system’s output and use it appropriately. An appropriate type and degree of transparency shall be ensured with a view to achieving compliance with the relevant obligations of the provider and deployer set out in Section 3. 2",
     "decision": "accept"
   },
   {
@@ -436,7 +464,7 @@
     "seg": "Article 14",
     "anchor": "designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen",
     "flag": "high",
-    "source_span": "High-risk AI systems shall be designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen by natural persons during the period in which they are in use. 2. Human oversight shall aim to prevent or minimise the risks to health, safety or fundamental rights that may emerge when a high-risk AI system is used in accordance",
+    "source_span": "designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen by natural persons during the period in which they are in use. 2. Human oversight shall aim to prevent or minimise the risks to health, safety or fundamental rights that may emerge when a high-risk AI system is used in accordance with its intended purpose or",
     "decision": "accept"
   },
   {
@@ -450,7 +478,7 @@
     "seg": "Article 15",
     "anchor": "achieve an appropriate level of accuracy, robustness, and cybersecurity",
     "flag": "high",
-    "source_span": "High-risk AI systems shall be designed and developed in such a way that they achieve an appropriate level of accuracy, robustness, and cybersecurity, and that they perform consistently in those respects throughout their lifecycle. 2. To address the technical aspects of how to measure the appropriate levels of accuracy and robustn",
+    "source_span": "achieve an appropriate level of accuracy, robustness, and cybersecurity, and that they perform consistently in those respects throughout their lifecycle. 2. To address the technical aspects of how to measure the appropriate levels of accuracy and robustness set out in paragraph 1 and any other relevant performance metrics, the Co",
     "decision": "accept"
   },
   {
@@ -464,7 +492,7 @@
     "seg": "Article 72",
     "anchor": "establish and document a post-market monitoring system",
     "flag": "high",
-    "source_span": "Providers shall establish and document a post-market monitoring system in a manner that is proportionate to the nature of the AI technologies and the risks of the high-risk AI system. 2. The post-market monitoring system shall actively and systematically collect, document and analyse relevant data which may be pr",
+    "source_span": "establish and document a post-market monitoring system in a manner that is proportionate to the nature of the AI technologies and the risks of the high-risk AI system. 2. The post-market monitoring system shall actively and systematically collect, document and analyse relevant data which may be provided by deploy",
     "decision": "accept"
   },
   {
@@ -478,7 +506,49 @@
     "seg": "Article 26",
     "anchor": "assign human oversight to natural persons who have the necessary competence",
     "flag": "high",
-    "source_span": "Deployers shall assign human oversight to natural persons who have the necessary competence, training and authority, as well as the necessary support. 3. The obligations set out in paragraphs 1 and 2, are without prejudice to other deployer obligations under Union or national law and to the deployer’s freedom to organise its own reso",
+    "source_span": "assign human oversight to natural persons who have the necessary competence, training and authority, as well as the necessary support. 3. The obligations set out in paragraphs 1 and 2, are without prejudice to other deployer obligations under Union or national law and to the deployer’s freedom to organise its own resources and activi",
+    "decision": "accept"
+  },
+  {
+    "kind": "obligation",
+    "name": "ob_ImporterConformity",
+    "label": "Importer conformity verification",
+    "otype": "ConformityVerificationObligation",
+    "imposed_on": "Importer",
+    "applies_to": "HighRiskAISystem",
+    "ref": "Article 23",
+    "seg": "Article 23",
+    "anchor": "Before placing a high-risk AI system on the market, importers shall ensure that the system is in conformity",
+    "flag": "high",
+    "source_span": "Before placing a high-risk AI system on the market, importers shall ensure that the system is in conformity with this Regulation by verifying that: (a) the relevant conformity assessment procedure referred to in Article 43 has been carried out by the provider of the high-risk AI system; (b) the provider has drawn up the technical documentation in accordance with Ar",
+    "decision": "accept"
+  },
+  {
+    "kind": "obligation",
+    "name": "ob_DistributorVerification",
+    "label": "Distributor verification",
+    "otype": "ConformityVerificationObligation",
+    "imposed_on": "Distributor",
+    "applies_to": "HighRiskAISystem",
+    "ref": "Article 24",
+    "seg": "Article 24",
+    "anchor": "Before making a high-risk AI system available on the market, distributors shall verify",
+    "flag": "high",
+    "source_span": "Before making a high-risk AI system available on the market, distributors shall verify that it bears the required CE marking, that it is accompanied by a copy of the EU declaration of conformity referred to in Article 47 and instructions for use, and that the provider and the importer of that system, as applicable, have complied with their resp",
+    "decision": "accept"
+  },
+  {
+    "kind": "obligation",
+    "name": "ob_AuthRepTasks",
+    "label": "Authorised representative mandate tasks",
+    "otype": "RepresentationObligation",
+    "imposed_on": "AuthorisedRepresentative",
+    "applies_to": "HighRiskAISystem",
+    "ref": "Article 22",
+    "seg": "Article 22",
+    "anchor": "The authorised representative shall perform the",
+    "flag": "high",
+    "source_span": "The authorised representative shall perform the tasks specified in the mandate received from the provider. It shall provide a copy of the mandate to the market surveillance authorities upon request, in one of the official languages of the institutions of the Union, as indicated by the competent authority.",
     "decision": "accept"
   },
   {
@@ -492,7 +562,7 @@
     "seg": "Article 50",
     "anchor": "informed that they are interacting with an AI system",
     "flag": "high",
-    "source_span": "Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI system, unless this is obvious from the point of view of a natural person who is reasonably well",
+    "source_span": "informed that they are interacting with an AI system, unless this is obvious from the point of view of a natural person who is reasonably well-informed, observant and circumspect, taking into account the circumstances and the context of use. This obligation shall not apply to AI systems authorised by law to det",
     "decision": "accept"
   },
   {
@@ -506,7 +576,7 @@
     "seg": "Article 50",
     "anchor": "outputs of the AI system are marked in a machine-readable format",
     "flag": "high",
-    "source_span": "Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, shall ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated. Providers shall ensure their technical solutions are effect",
+    "source_span": "outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated. Providers shall ensure their technical solutions are effective, interoperable, robust and reliable as far as this is technically feasible, taking into account the specificities and limitations of variou",
     "decision": "accept"
   },
   {
@@ -521,7 +591,7 @@
     "anchor": "constituting a deep fake, shall disclose that the content has been artificially generated or manipulated",
     "flag": "review",
     "note": "Conditional (exceptions for law-enforcement and artistic works). Modelled as a transparency obligation; exceptions out of scope for the PoC.",
-    "source_span": "Deployers of an AI system that generates or manipulates image, audio or video content constituting a deep fake, shall disclose that the content has been artificially generated or manipulated. This obligation shall not apply where the use is authorised by law to detect, prevent, investigate or prosecute criminal offence. Where the content forms part of an evident",
+    "source_span": "constituting a deep fake, shall disclose that the content has been artificially generated or manipulated. This obligation shall not apply where the use is authorised by law to detect, prevent, investigate or prosecute criminal offence. Where the content forms part of an evidently artistic, creative, satirical, fictional or analogous work or programme, the transp",
     "decision": "accept"
   }
 ]

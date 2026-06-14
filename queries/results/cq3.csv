@@ -1,5 +1,8 @@
 actor,obligation,label
+AuthorisedRepresentative,ob_AuthRepTasks,Authorised representative mandate tasks
 Deployer,ob_DeployerHumanOversight,Deployer human oversight obligation
+Distributor,ob_DistributorVerification,Distributor verification
+Importer,ob_ImporterConformity,Importer conformity verification
 Provider,ob_RiskManagement,Risk management obligation
 Provider,ob_DataGovernance,Data and data governance obligation
 Provider,ob_TechnicalDocumentation,Technical documentation obligation
