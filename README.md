@@ -7,7 +7,7 @@
 ![Source](https://img.shields.io/badge/source-Regulation%20%28EU%29%202024%2F1689-003399)
 ![License](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY--4.0-blue)
 
-**Dr Zhaoxing Li** — [GitHub](https://github.com/Zhaoxing-Li) · [![ORCID](https://img.shields.io/badge/ORCID-0000--0003--3560--3461-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0003-3560-3461) · [Google Scholar](https://scholar.google.com/citations?user=2fqD3zUAAAAJ&hl=en) · ✉ zhaoxing.li0808@outlook.com
+**Dr Zhaoxing Li** — [Website](https://zhaoxing-li.github.io/) · [![ORCID](https://img.shields.io/badge/ORCID-0000--0003--3560--3461-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0003-3560-3461) · [Google Scholar](https://scholar.google.com/citations?user=2fqD3zUAAAAJ&hl=en)
 
 ![EU AI Act Ontology — AI-assisted, human-verified pipeline](docs/pipeline.png)
 
