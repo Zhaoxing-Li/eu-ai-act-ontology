@@ -1,4 +1,4 @@
-# EU AI Act Ontology (proof of concept)
+# <img src="docs/icon.png" alt="" height="30" align="top"> EU AI Act Ontology (proof of concept)
 
 ![OWL 2 DL](https://img.shields.io/badge/OWL-2%20DL-005A9C)
 ![Reasoner: HermiT](https://img.shields.io/badge/reasoner-HermiT%20consistent-2e9c45)
@@ -30,6 +30,8 @@ Critic even caught an issue the other two missed.
 The headline modelling choice is symbolic: `HighRiskAISystem` is a **defined
 class**, so a reasoner *infers* which systems are high-risk — nothing is
 hand-asserted. Generation moves fast; the reasoning stays verifiable.
+
+**Jump to:** [Submission checklist](#submission-checklist) · [Highlights](#highlights) · [Repository map](#repository-map) · [Reproduce](#reproduce) · [Validation](#validation) · [Design](#design-in-one-paragraph)
 
 ## Submission checklist
 
