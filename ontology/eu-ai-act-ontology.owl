@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:euai="https://zhaoxing-li.github.io/eu-ai-act-ontology#"
+  xmlns:prov="http://www.w3.org/ns/prov#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <euai:TransparencyObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_DeepfakeDisclosure">
+    <rdfs:label>Deep fake disclosure</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Deployer"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#LimitedRiskAISystem"/>
+    <euai:hasArticleReference>Article 50(4)</euai:hasArticleReference>
+    <euai:legalTextSnippet>Deployers of an AI system that generates or manipulates image, audio or video content constituting a deep fake, shall disclose that the content has been artificially generated or manipulated. This obligation shall not ap</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+    <rdfs:comment>Conditional (exceptions for law-enforcement and artistic works). Modelled as a transparency obligation; exceptions out of scope for the PoC.</rdfs:comment>
+  </euai:TransparencyObligation>
+  <euai:ProhibitedPractice rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#EmotionRecognitionWorkEducation">
+    <rdfs:label>Emotion recognition at work or in education</rdfs:label>
+    <euai:hasRiskLevel>
+      <euai:RiskLevel rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#UnacceptableRisk">
+        <rdfs:label>Unacceptable risk</rdfs:label>
+        <euai:hasArticleReference>Article 5</euai:hasArticleReference>
+        <euai:legalTextSnippet>The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu</euai:legalTextSnippet>
+        <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+      </euai:RiskLevel>
+    </euai:hasRiskLevel>
+    <euai:hasArticleReference>Article 5(1)(f)</euai:hasArticleReference>
+    <euai:legalTextSnippet>The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:ProhibitedPractice>
+  <euai:ProhibitedPractice rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#BiometricCategorisationSensitive">
+    <rdfs:label>Sensitive biometric categorisation</rdfs:label>
+    <euai:hasRiskLevel rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#UnacceptableRisk"/>
+    <euai:hasArticleReference>Article 5(1)(g)</euai:hasArticleReference>
+    <euai:legalTextSnippet>The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:ProhibitedPractice>
+  <euai:LoggingObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_RecordKeeping">
+    <rdfs:label>Record-keeping (logging) obligation</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRiskAISystem"/>
+    <euai:hasArticleReference>Article 12</euai:hasArticleReference>
+    <euai:legalTextSnippet>High-risk AI systems shall technically allow for the automatic recording of events (logs) over the lifetime of the system. 2. In order to ensure a level of traceability of the functioning of a high-risk AI system that is</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:LoggingObligation>
+  <euai:AnnexIIIDomain rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#AdministrationOfJusticeAndDemocracy">
+    <rdfs:label>Administration of justice and democratic processes</rdfs:label>
+    <euai:hasAnnexReference>Annex III(8)</euai:hasAnnexReference>
+    <euai:legalTextSnippet>Administration of justice and democratic processes: (a) AI systems intended to be used by a judicial authority or on their behalf to assist a judicial authority in researching and interpreting facts and the law and in ap</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:AnnexIIIDomain>
+  <euai:RiskManagementObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_RiskManagement">
+    <rdfs:label>Risk management obligation</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRiskAISystem"/>
+    <euai:hasArticleReference>Article 9</euai:hasArticleReference>
+    <euai:legalTextSnippet>A risk management system shall be established, implemented, documented and maintained in relation to high-risk AI systems. 2. The risk management system shall be understood as a continuous iterative process planned and r</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:RiskManagementObligation>
+  <euai:AnnexIIIDomain rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#EssentialServices">
+    <rdfs:label>Access to essential services</rdfs:label>
+    <euai:hasAnnexReference>Annex III(5)</euai:hasAnnexReference>
+    <euai:legalTextSnippet>Access to and enjoyment of essential private services and essential public services and benefits: (a) AI systems intended to be used by public authorities or on behalf of public authorities to evaluate the eligibility of</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:AnnexIIIDomain>
+  <euai:ProhibitedPractice rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#RealTimeRemoteBiometricID">
+    <rdfs:label>Real-time remote biometric identification for law enforcement</rdfs:label>
+    <euai:hasRiskLevel rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#UnacceptableRisk"/>
+    <euai:hasArticleReference>Article 5(1)(h)</euai:hasArticleReference>
+    <euai:legalTextSnippet>The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+    <rdfs:comment>Conditional prohibition (permitted under narrow exceptions). Modelled as prohibited; the exceptions are out of scope for the PoC.</rdfs:comment>
+  </euai:ProhibitedPractice>
+  <euai:TransparencyObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_SyntheticContentMarking">
+    <rdfs:label>Synthetic content marking</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#LimitedRiskAISystem"/>
+    <euai:hasArticleReference>Article 50(2)</euai:hasArticleReference>
+    <euai:legalTextSnippet>Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, shall ensure that the outputs of the AI system are marked in a machine-readable format and detectab</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:TransparencyObligation>
+  <euai:AISystem rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ExamProctoringSystem">
+    <rdfs:label>Online exam proctoring system</rdfs:label>
+    <rdfs:comment>Demo instance: should be INFERRED as a HighRiskAISystem via the education domain (Annex III(3)).</rdfs:comment>
+    <euai:operatesInDomain>
+      <euai:AnnexIIIDomain rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#EducationAndVocationalTraining">
+        <rdfs:label>Education and vocational training</rdfs:label>
+        <euai:hasAnnexReference>Annex III(3)</euai:hasAnnexReference>
+        <euai:legalTextSnippet>Education and vocational training: (a) AI systems intended to be used to determine access or admission or to assign natural persons to educational and vocational training institutions at all levels; (b) AI systems intend</euai:legalTextSnippet>
+        <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+      </euai:AnnexIIIDomain>
+    </euai:operatesInDomain>
+  </euai:AISystem>
+  <euai:AnnexIIIDomain rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#Biometrics">
+    <rdfs:label>Biometrics</rdfs:label>
+    <euai:hasAnnexReference>Annex III(1)</euai:hasAnnexReference>
+    <euai:legalTextSnippet>Biometrics, in so far as their use is permitted under relevant Union or national law: (a) remote biometric identification systems. This shall not include AI systems intended to be used for biometric verification the sole</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:AnnexIIIDomain>
+  <euai:DataGovernanceObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_DataGovernance">
+    <rdfs:label>Data and data governance obligation</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRiskAISystem"/>
+    <euai:hasArticleReference>Article 10</euai:hasArticleReference>
+    <euai:legalTextSnippet>Training, validation and testing data sets shall be subject to data governance and management practices appropriate for the intended purpose of the high-risk AI system. Those practices shall concern in particular: (a) th</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:DataGovernanceObligation>
+  <euai:RiskLevel rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRisk">
+    <rdfs:label>High risk</rdfs:label>
+    <euai:hasArticleReference>Article 6</euai:hasArticleReference>
+    <euai:legalTextSnippet>Irrespective of whether an AI system is placed on the market or put into service independently of the products referred to in points (a) and (b), that AI system shall be considered to be high-risk where both of the follo</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:RiskLevel>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#Importer">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Actor"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/airo#AIOperator"/>
+    <rdfs:label>Importer</rdfs:label>
+    <euai:hasArticleReference>Article 3(6)</euai:hasArticleReference>
+    <euai:legalTextSnippet>For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </owl:Class>
+  <euai:ProhibitedPractice rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#SubliminalManipulation">
+    <rdfs:label>Manipulative or deceptive techniques</rdfs:label>
+    <euai:hasRiskLevel rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#UnacceptableRisk"/>
+    <euai:hasArticleReference>Article 5(1)(a)</euai:hasArticleReference>
+    <euai:legalTextSnippet>The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:ProhibitedPractice>
+  <owl:AnnotationProperty rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#hasArticleReference">
+    <rdfs:label>has article reference</rdfs:label>
+    <rdfs:comment>Article of Regulation (EU) 2024/1689 that grounds this element.</rdfs:comment>
+  </owl:AnnotationProperty>
+  <euai:HumanOversightObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_HumanOversightDesign">
+    <rdfs:label>Human oversight (design) obligation</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRiskAISystem"/>
+    <euai:hasArticleReference>Article 14</euai:hasArticleReference>
+    <euai:legalTextSnippet>High-risk AI systems shall be designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen by natural persons during the period in which they are i</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:HumanOversightObligation>
+  <euai:TransparencyObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_AIInteractionDisclosure">
+    <rdfs:label>AI interaction disclosure</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#LimitedRiskAISystem"/>
+    <euai:hasArticleReference>Article 50(1)</euai:hasArticleReference>
+    <euai:legalTextSnippet>Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI syst</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:TransparencyObligation>
+  <owl:ObjectProperty rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#appliesToSystem">
+    <rdfs:label>applies to system</rdfs:label>
+    <rdfs:domain rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation"/>
+    <rdfs:comment>The kind of AI system an obligation applies to. Points to a system class used as an individual (OWL 2 punning).</rdfs:comment>
+  </owl:ObjectProperty>
+  <euai:PostMarketMonitoringObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_PostMarketMonitoring">
+    <rdfs:label>Post-market monitoring obligation</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRiskAISystem"/>
+    <euai:hasArticleReference>Article 72</euai:hasArticleReference>
+    <euai:legalTextSnippet>Providers shall establish and document a post-market monitoring system in a manner that is proportionate to the nature of the AI technologies and the risks of the high-risk AI system. 2. The post-market monitoring system</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:PostMarketMonitoringObligation>
+  <euai:AnnexIIIDomain rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#LawEnforcement">
+    <rdfs:label>Law enforcement</rdfs:label>
+    <euai:hasAnnexReference>Annex III(6)</euai:hasAnnexReference>
+    <euai:legalTextSnippet>Law enforcement, in so far as their use is permitted under relevant Union or national law: (a) AI systems intended to be used by or on behalf of law enforcement authorities, or by Union institutions, bodies, offices or a</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:AnnexIIIDomain>
+  <euai:ProhibitedPractice rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#SocialScoring">
+    <rdfs:label>Social scoring</rdfs:label>
+    <euai:hasRiskLevel rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#UnacceptableRisk"/>
+    <euai:hasArticleReference>Article 5(1)(c)</euai:hasArticleReference>
+    <euai:legalTextSnippet>The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:ProhibitedPractice>
+  <euai:ProhibitedPractice rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#IndividualCrimePrediction">
+    <rdfs:label>Individual criminal-offence risk assessment</rdfs:label>
+    <euai:hasRiskLevel rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#UnacceptableRisk"/>
+    <euai:hasArticleReference>Article 5(1)(d)</euai:hasArticleReference>
+    <euai:legalTextSnippet>The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:ProhibitedPractice>
+  <euai:TransparencyObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_ProviderTransparency">
+    <rdfs:label>Transparency and provision of information to deployers</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRiskAISystem"/>
+    <euai:hasArticleReference>Article 13</euai:hasArticleReference>
+    <euai:legalTextSnippet>High-risk AI systems shall be designed and developed in such a way as to ensure that their operation is sufficiently transparent to enable deployers to interpret a system’s output and use it appropriately. An appropriate</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:TransparencyObligation>
+  <euai:AnnexIIIDomain rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#CriticalInfrastructure">
+    <rdfs:label>Critical infrastructure</rdfs:label>
+    <euai:hasAnnexReference>Annex III(2)</euai:hasAnnexReference>
+    <euai:legalTextSnippet>Critical infrastructure: AI systems intended to be used as safety components in the management and operation of critical digital infrastructure, road traffic, or in the supply of water, gas, heating or electricity. 3. Ed</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:AnnexIIIDomain>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#MarketSurveillanceAuthority">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/airo#Stakeholder"/>
+    <rdfs:label>Market surveillance authority</rdfs:label>
+    <euai:hasArticleReference>Article 70</euai:hasArticleReference>
+    <euai:legalTextSnippet>Each Member State shall establish or designate as national competent authorities at least one notifying authority and at least one market surveillance authority for the purposes of this Regulation. Those national compete</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+    <rdfs:comment>An authority, not an 'operator'. Aligned to airo:Stakeholder rather than airo:AIOperator. Confirm scope.</rdfs:comment>
+  </owl:Class>
+  <euai:ProhibitedPractice rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#FacialImageScraping">
+    <rdfs:label>Untargeted facial-image scraping</rdfs:label>
+    <euai:hasRiskLevel rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#UnacceptableRisk"/>
+    <euai:hasArticleReference>Article 5(1)(e)</euai:hasArticleReference>
+    <euai:legalTextSnippet>The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:ProhibitedPractice>
+  <euai:AISystem rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#CVScreeningTool">
+    <rdfs:label>ACME CV screening tool</rdfs:label>
+    <rdfs:comment>Demo instance: should be INFERRED as a HighRiskAISystem via the employment domain (Annex III(4)).</rdfs:comment>
+    <euai:operatesInDomain>
+      <euai:AnnexIIIDomain rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#EmploymentAndWorkerManagement">
+        <rdfs:label>Employment and worker management</rdfs:label>
+        <euai:hasAnnexReference>Annex III(4)</euai:hasAnnexReference>
+        <euai:legalTextSnippet>Employment, workers’ management and access to self-employment: (a) AI systems intended to be used for the recruitment or selection of natural persons, in particular to place targeted job advertisements, to analyse and fi</euai:legalTextSnippet>
+        <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+      </euai:AnnexIIIDomain>
+    </euai:operatesInDomain>
+  </euai:AISystem>
+  <owl:ObjectProperty rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#hasRiskLevel">
+    <rdfs:label>has risk level</rdfs:label>
+    <rdfs:domain rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#AISystem"/>
+    <rdfs:range rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#RiskLevel"/>
+    <rdfs:comment>Regulatory risk tier of an AI system.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:AnnotationProperty rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#legalTextSnippet">
+    <rdfs:label>legal text snippet</rdfs:label>
+    <rdfs:comment>Verbatim excerpt of the source provision (for traceability / hallucination back-check).</rdfs:comment>
+  </owl:AnnotationProperty>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#GeneralPurposeAIModel">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/airo#GPAIModel"/>
+    <rdfs:label>General-purpose AI model</rdfs:label>
+    <skos:definition>An AI model, including one trained with a large amount of data using self-supervision at scale, that displays significant generality and competence across tasks.</skos:definition>
+    <euai:hasArticleReference>Article 3(63)</euai:hasArticleReference>
+    <euai:legalTextSnippet>For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#prohibitedBy">
+    <rdfs:label>prohibited by</rdfs:label>
+    <rdfs:comment>Links a prohibited practice to the provision that prohibits it.</rdfs:comment>
+  </owl:ObjectProperty>
+  <euai:AccuracyRobustnessObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_AccuracyRobustness">
+    <rdfs:label>Accuracy, robustness and cybersecurity obligation</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRiskAISystem"/>
+    <euai:hasArticleReference>Article 15</euai:hasArticleReference>
+    <euai:legalTextSnippet>High-risk AI systems shall be designed and developed in such a way that they achieve an appropriate level of accuracy, robustness, and cybersecurity, and that they perform consistently in those respects throughout their</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:AccuracyRobustnessObligation>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#Distributor">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Actor"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/airo#AIOperator"/>
+    <rdfs:label>Distributor</rdfs:label>
+    <euai:hasArticleReference>Article 3(7)</euai:hasArticleReference>
+    <euai:legalTextSnippet>For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#AuthorisedRepresentative">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Actor"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/airo#AIOperator"/>
+    <rdfs:label>Authorised representative</rdfs:label>
+    <euai:hasArticleReference>Article 3(5)</euai:hasArticleReference>
+    <euai:legalTextSnippet>For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </owl:Class>
+  <euai:AnnexIIIDomain rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#MigrationAsylumBorderControl">
+    <rdfs:label>Migration, asylum and border control</rdfs:label>
+    <euai:hasAnnexReference>Annex III(7)</euai:hasAnnexReference>
+    <euai:legalTextSnippet>Migration, asylum and border control management, in so far as their use is permitted under relevant Union or national law: (a) AI systems intended to be used by or on behalf of competent public authorities or by Union in</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:AnnexIIIDomain>
+  <euai:ProhibitedPractice rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ExploitationOfVulnerabilities">
+    <rdfs:label>Exploitation of vulnerabilities</rdfs:label>
+    <euai:hasRiskLevel rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#UnacceptableRisk"/>
+    <euai:hasArticleReference>Article 5(1)(b)</euai:hasArticleReference>
+    <euai:legalTextSnippet>The following AI practices shall be prohibited: (a) the placing on the market, the putting into service or the use of an AI system that deploys subliminal techniques beyond a person’s consciousness or purposefully manipu</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:ProhibitedPractice>
+  <owl:ObjectProperty rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#imposesObligation">
+    <rdfs:label>imposes obligation</rdfs:label>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#imposedOn">
+        <rdfs:label>imposed on</rdfs:label>
+        <rdfs:domain rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation"/>
+        <rdfs:comment>The actor (bearer) on whom an obligation falls. Points to an actor class used as an individual (OWL 2 punning).</rdfs:comment>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:comment>A legal source imposes an obligation.</rdfs:comment>
+  </owl:ObjectProperty>
+  <euai:TechnicalDocumentationObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_TechnicalDocumentation">
+    <rdfs:label>Technical documentation obligation</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRiskAISystem"/>
+    <euai:hasArticleReference>Article 11</euai:hasArticleReference>
+    <euai:legalTextSnippet>The technical documentation of a high-risk AI system shall be drawn up before that system is placed on the market or put into service and shall be kept up-to date. The technical documentation shall be drawn up in such a</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:TechnicalDocumentationObligation>
+  <euai:LimitedRiskAISystem rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#CustomerServiceChatbot">
+    <rdfs:label>Customer-service chatbot</rdfs:label>
+    <rdfs:comment>Demo instance: NOT high-risk (no Annex III domain); subject only to Article 50 transparency. Confirms the reasoner does not over-classify.</rdfs:comment>
+    <euai:hasRiskLevel>
+      <euai:RiskLevel rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#LimitedRisk">
+        <rdfs:label>Limited risk</rdfs:label>
+        <euai:hasArticleReference>Article 50</euai:hasArticleReference>
+        <euai:legalTextSnippet>Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI syst</euai:legalTextSnippet>
+        <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+        <rdfs:comment>'Limited risk' is the common term for Article 50 transparency-only systems; the term itself is from recitals, not the article body.</rdfs:comment>
+      </euai:RiskLevel>
+    </euai:hasRiskLevel>
+  </euai:LimitedRiskAISystem>
+  <euai:RiskLevel rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#MinimalRisk">
+    <rdfs:label>Minimal risk</rdfs:label>
+    <euai:hasArticleReference>Recital 165</euai:hasArticleReference>
+    <euai:legalTextSnippet>The AI Office and the Member States shall encourage and facilitate the drawing up of codes of conduct, including related governance mechanisms, intended to foster the voluntary application to AI systems, other than high-</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+    <rdfs:comment>'Minimal risk' is a recital-level category (voluntary codes of conduct, Art 95). No span in the articles; flagged.</rdfs:comment>
+  </euai:RiskLevel>
+  <owl:AnnotationProperty rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#hasAnnexReference">
+    <rdfs:label>has annex reference</rdfs:label>
+    <rdfs:comment>Annex of Regulation (EU) 2024/1689 that grounds this element.</rdfs:comment>
+  </owl:AnnotationProperty>
+  <euai:HumanOversightObligation rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ob_DeployerHumanOversight">
+    <rdfs:label>Deployer human oversight obligation</rdfs:label>
+    <euai:imposedOn rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Deployer"/>
+    <euai:appliesToSystem rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRiskAISystem"/>
+    <euai:hasArticleReference>Article 26</euai:hasArticleReference>
+    <euai:legalTextSnippet>Deployers shall assign human oversight to natural persons who have the necessary competence, training and authority, as well as the necessary support. 3. The obligations set out in paragraphs 1 and 2, are without prejudi</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </euai:HumanOversightObligation>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#DataGovernanceObligation">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation"/>
+    <rdfs:label>DataGovernance obligation</rdfs:label>
+    <skos:definition>Duty over training, validation and testing data quality and governance (Article 10).</skos:definition>
+    <euai:hasArticleReference>Article 10</euai:hasArticleReference>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#AccuracyRobustnessObligation">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation"/>
+    <rdfs:label>AccuracyRobustness obligation</rdfs:label>
+    <skos:definition>Duty to achieve appropriate accuracy, robustness and cybersecurity (Article 15).</skos:definition>
+    <euai:hasArticleReference>Article 15</euai:hasArticleReference>
+  </owl:Class>
+  <owl:Ontology rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology">
+    <dcterms:title>EU AI Act Ontology (proof of concept)</dcterms:title>
+    <dcterms:description>A proof-of-concept ontology of the key concepts, actors and obligations of Regulation (EU) 2024/1689 (the EU AI Act), built with an AI-assisted, human-verified pipeline and aligned to the AI Risk Ontology (AIRO).</dcterms:description>
+    <dcterms:creator>Zhaoxing Li</dcterms:creator>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+    <prov:wasDerivedFrom rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+    <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-14T12:00:00+00:00</prov:generatedAtTime>
+    <prov:wasGeneratedBy>
+      <prov:Activity rdf:nodeID="nbf5c075a209a44d59700501cff7689c8b1">
+        <rdfs:label>AI-assisted ontology engineering pipeline</rdfs:label>
+        <rdfs:comment>Fetch + segment (EUR-Lex) -&gt; LLM candidate extraction with verbatim source spans -&gt; human verification gate -&gt; Turtle authoring -&gt; HermiT reasoning -&gt; SPARQL competency-question testing -&gt; provenance back-check.</rdfs:comment>
+      </prov:Activity>
+    </prov:wasGeneratedBy>
+    <rdfs:comment>Risk is modelled once: HighRiskAISystem is a DEFINED class and membership is INFERRED by a reasoner, not asserted. Obligations are typed by kind and the bearer is attached with euai:imposedOn.</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#Deployer">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Actor"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/airo#AIDeployer"/>
+    <rdfs:label>Deployer</rdfs:label>
+    <euai:hasArticleReference>Article 3(4)</euai:hasArticleReference>
+    <euai:legalTextSnippet>For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#AISystem">
+    <owl:equivalentClass rdf:resource="https://w3id.org/airo#AISystem"/>
+    <rdfs:label>AI system</rdfs:label>
+    <skos:definition>A machine-based system designed to operate with varying levels of autonomy, that may exhibit adaptiveness, and that infers from inputs how to generate outputs.</skos:definition>
+    <euai:hasArticleReference>Article 3(1)</euai:hasArticleReference>
+    <euai:legalTextSnippet>For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+    <rdfs:isDefinedBy rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#HighRiskAISystem">
+    <owl:equivalentClass>
+      <owl:Class rdf:nodeID="nbf5c075a209a44d59700501cff7689c8b2">
+        <owl:intersectionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#AISystem"/>
+          <owl:Restriction rdf:nodeID="nbf5c075a209a44d59700501cff7689c8b3">
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#operatesInDomain">
+                <rdfs:subPropertyOf rdf:resource="https://w3id.org/airo#isAppliedWithinDomain"/>
+                <rdfs:label>operates in domain</rdfs:label>
+                <rdfs:domain rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#AISystem"/>
+                <rdfs:range rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#AnnexIIIDomain"/>
+                <rdfs:comment>Links an AI system to an Annex III high-risk application area (Article 6(2)).</rdfs:comment>
+              </owl:ObjectProperty>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#AnnexIIIDomain"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#AISystem"/>
+    <rdfs:label>High-risk AI system</rdfs:label>
+    <skos:definition>An AI system that operates in one of the high-risk application areas of Annex III (Article 6(2)). Class membership is inferred by a reasoner, never asserted on instances.</skos:definition>
+    <euai:hasArticleReference>Article 6(2)</euai:hasArticleReference>
+    <euai:legalTextSnippet>High-risk AI systems referred to in Article 6(2) High-risk AI systems pursuant to Article 6(2) are the AI systems listed in any of the following areas: 1. Biometrics, in so far as their use is permitted under relevant Un</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+    <rdfs:comment>Defined class: AISystem and (operatesInDomain some AnnexIIIDomain). Membership is inferred, not asserted.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#Provider">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Actor"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/airo#AIProvider"/>
+    <rdfs:label>Provider</rdfs:label>
+    <euai:hasArticleReference>Article 3(3)</euai:hasArticleReference>
+    <euai:legalTextSnippet>For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#TransparencyObligation">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation"/>
+    <rdfs:label>Transparency obligation</rdfs:label>
+    <skos:definition>Duty to disclose information about an AI system or its outputs.</skos:definition>
+    <euai:hasArticleReference>Articles 13, 50</euai:hasArticleReference>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#HumanOversightObligation">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation"/>
+    <rdfs:label>HumanOversight obligation</rdfs:label>
+    <skos:definition>Duty to enable or ensure effective human oversight (Articles 14, 26).</skos:definition>
+    <euai:hasArticleReference>Articles 14, 26</euai:hasArticleReference>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#ProhibitedPractice">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#AIPractice"/>
+    <rdfs:label>Prohibited practice</rdfs:label>
+    <skos:definition>An AI practice prohibited under Article 5 of the EU AI Act.</skos:definition>
+    <euai:hasArticleReference>Article 5</euai:hasArticleReference>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#LimitedRiskAISystem">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#AISystem"/>
+    <rdfs:label>Limited-risk AI system</rdfs:label>
+    <skos:definition>An AI system that is not high-risk but is subject to the transparency obligations of Article 50 (e.g. systems interacting with people, or generating synthetic content).</skos:definition>
+    <euai:hasArticleReference>Article 50</euai:hasArticleReference>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#RiskManagementObligation">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation"/>
+    <rdfs:label>RiskManagement obligation</rdfs:label>
+    <skos:definition>Duty to establish a risk management system (Article 9).</skos:definition>
+    <euai:hasArticleReference>Article 9</euai:hasArticleReference>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#AnnexIIIDomain">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/airo#Domain"/>
+    <rdfs:label>Annex III domain</rdfs:label>
+    <skos:definition>A high-risk application area listed in Annex III of the EU AI Act (Article 6(2)).</skos:definition>
+    <euai:hasAnnexReference>Annex III</euai:hasAnnexReference>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation">
+    <rdfs:label>Obligation</rdfs:label>
+    <skos:definition>A duty imposed by the EU AI Act on an actor in respect of an AI system.</skos:definition>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#RiskLevel">
+    <rdfs:label>Risk level</rdfs:label>
+    <skos:definition>A regulatory risk tier of the EU AI Act.</skos:definition>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#TechnicalDocumentationObligation">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation"/>
+    <rdfs:label>TechnicalDocumentation obligation</rdfs:label>
+    <skos:definition>Duty to draw up and keep technical documentation (Article 11).</skos:definition>
+    <euai:hasArticleReference>Article 11</euai:hasArticleReference>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#AIPractice">
+    <rdfs:label>AI practice</rdfs:label>
+    <skos:definition>A way an AI system is placed on the market, put into service or used.</skos:definition>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#Actor">
+    <owl:equivalentClass rdf:resource="https://w3id.org/airo#AIOperator"/>
+    <rdfs:label>Actor</rdfs:label>
+    <euai:hasArticleReference>Article 3(8)</euai:hasArticleReference>
+    <euai:legalTextSnippet>For the purposes of this Regulation, the following definitions apply: (1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deplo</euai:legalTextSnippet>
+    <dcterms:source rdf:resource="http://data.europa.eu/eli/reg/2024/1689/oj"/>
+    <rdfs:comment>Act's 'operator' == AIRO AIOperator. 'Actor' is the local umbrella for parties bearing obligations.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#PostMarketMonitoringObligation">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation"/>
+    <rdfs:label>PostMarketMonitoring obligation</rdfs:label>
+    <skos:definition>Duty to monitor systems after they are placed on the market (Article 72).</skos:definition>
+    <euai:hasArticleReference>Article 72</euai:hasArticleReference>
+  </owl:Class>
+  <owl:Class rdf:about="https://zhaoxing-li.github.io/eu-ai-act-ontology#LoggingObligation">
+    <rdfs:subClassOf rdf:resource="https://zhaoxing-li.github.io/eu-ai-act-ontology#Obligation"/>
+    <rdfs:label>Logging obligation</rdfs:label>
+    <skos:definition>Duty to enable automatic recording of events / logs (Article 12).</skos:definition>
+    <euai:hasArticleReference>Article 12</euai:hasArticleReference>
+  </owl:Class>
+</rdf:RDF>
