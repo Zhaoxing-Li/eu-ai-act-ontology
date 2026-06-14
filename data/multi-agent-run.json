@@ -1,0 +1,97 @@
+{
+  "model": "claude-opus-4-8",
+  "agent": "critic",
+  "note": "Recorded reference run. Verdicts produced by the Critic agent attacking each Modeller axiom against its verbatim source span. Reproduce live with ANTHROPIC_API_KEY set: python3 scripts/multi_agent_pipeline.py.",
+  "results": [
+    {
+      "name": "HighRiskAISystem",
+      "ref": "Article 6(2)",
+      "axiom": "euai:HighRiskAISystem owl:equivalentClass [ AISystem and (operatesInDomain some AnnexIIIDomain) ]",
+      "verdict": "needs_revision",
+      "flaw": "The equivalentClass axiom claims high-risk == Annex III systems exactly, but Article 6(1) makes a second class of systems high-risk: safety components of products covered by the Annex I harmonisation legislation. The Annex III route alone does not capture all high-risk systems.",
+      "recommended_fix": "Either document the Article 6(1) product-safety route as deliberately out of scope for the PoC, or model it as a second branch and weaken the equivalence.",
+      "confidence": 0.72
+    },
+    {
+      "name": "SocialScoring",
+      "ref": "Article 5(1)(c)",
+      "axiom": "euai:SocialScoring a euai:ProhibitedPractice",
+      "verdict": "supported",
+      "flaw": "Minor: the prohibition is qualified by sub-conditions (i)/(ii) (detrimental treatment in unrelated contexts, or unjustified/disproportionate treatment), which the flat class abstracts away. Acceptable for a proof of concept.",
+      "recommended_fix": "Optionally annotate that the qualifying conditions are abstracted.",
+      "confidence": 0.83
+    },
+    {
+      "name": "RealTimeRemoteBiometricID",
+      "ref": "Article 5(1)(h)",
+      "axiom": "euai:RealTimeRemoteBiometricID a euai:ProhibitedPractice  # unconditional prohibition",
+      "verdict": "needs_revision",
+      "flaw": "Over-claim. The span itself says the use is prohibited 'unless and in so far as such use is strictly necessary' for narrowly listed law-enforcement objectives (e.g. targeted search for victims, threat to life, locating a suspect of a serious offence), subject to authorisation. Asserting an unconditional prohibition contradicts the text.",
+      "recommended_fix": "Model as a conditionally-prohibited practice, or annotate the exceptions as explicitly out of scope.",
+      "confidence": 0.9
+    },
+    {
+      "name": "MarketSurveillanceAuthority",
+      "ref": "Article 70",
+      "axiom": "euai:MarketSurveillanceAuthority rdfs:subClassOf airo:Stakeholder",
+      "verdict": "supported",
+      "flaw": "None. A market surveillance authority enforces the Act and is not a provider/importer/distributor, so aligning it to airo:Stakeholder rather than airo:AIOperator is correct.",
+      "recommended_fix": "",
+      "confidence": 0.8
+    },
+    {
+      "name": "MinimalRisk",
+      "ref": "Recital 165",
+      "axiom": "euai:MinimalRisk a euai:RiskLevel",
+      "verdict": "needs_revision",
+      "flaw": "Ungrounded in the cited provision. The span concerns voluntary codes of conduct (Article 95) and does not name a 'minimal risk' tier; the term is recital-level only. The RiskLevel individual is not anchored in an article.",
+      "recommended_fix": "Keep but annotate as a recital-derived category, or drop for a stricter article-only model.",
+      "confidence": 0.78
+    },
+    {
+      "name": "Provider",
+      "ref": "Article 3(3)",
+      "axiom": "euai:Provider rdfs:subClassOf euai:Actor, airo:AIProvider",
+      "verdict": "supported",
+      "flaw": "None. The span defines 'provider' as a party that develops an AI system or GPAI model and places it on the market; subclassing airo:AIProvider is faithful.",
+      "recommended_fix": "",
+      "confidence": 0.9
+    },
+    {
+      "name": "ob_RiskManagement",
+      "ref": "Article 9",
+      "axiom": "euai:ob_RiskManagement a euai:RiskManagementObligation ; euai:imposedOn euai:Provider ; euai:appliesToSystem euai:HighRiskAISystem",
+      "verdict": "supported",
+      "flaw": "None material. Article 9 requires a risk management system for high-risk systems; Article 16(a) makes providers responsible for compliance, so imposedOn Provider is correct.",
+      "recommended_fix": "",
+      "confidence": 0.88
+    },
+    {
+      "name": "ob_DeepfakeDisclosure",
+      "ref": "Article 50(4)",
+      "axiom": "euai:ob_DeepfakeDisclosure a euai:TransparencyObligation ; euai:imposedOn euai:Deployer ; euai:appliesToSystem euai:LimitedRiskAISystem",
+      "verdict": "needs_revision",
+      "flaw": "Over-claim. Article 50(4) attaches exceptions: the obligation is relaxed for law-enforcement use, and for evidently artistic, creative, satirical or fictional works the disclosure is limited so as not to hamper enjoyment. Modelling it as an unconditional obligation omits these.",
+      "recommended_fix": "Annotate the exceptions, or mark the obligation as conditional.",
+      "confidence": 0.85
+    },
+    {
+      "name": "AISystem",
+      "ref": "Article 3(1)",
+      "axiom": "euai:AISystem owl:equivalentClass airo:AISystem",
+      "verdict": "supported",
+      "flaw": "None. The span reproduces the Article 3(1) definition almost verbatim of airo:AISystem; the equivalence is faithful.",
+      "recommended_fix": "",
+      "confidence": 0.92
+    },
+    {
+      "name": "EmploymentAndWorkerManagement",
+      "ref": "Annex III(4)",
+      "axiom": "euai:EmploymentAndWorkerManagement a euai:AnnexIIIDomain",
+      "verdict": "supported",
+      "flaw": "None. The span lists 'Employment, workers management and access to self-employment' as an Annex III area.",
+      "recommended_fix": "",
+      "confidence": 0.9
+    }
+  ]
+}
