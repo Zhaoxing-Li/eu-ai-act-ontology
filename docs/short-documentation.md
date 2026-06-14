@@ -8,18 +8,20 @@ I built a proof-of-concept ontology of the core of the EU AI Act — not a compl
 or publication-quality model. It covers the elements the task asks for: AI system
 categories, prohibited practices, high-risk systems, the core actors (providers,
 deployers, importers, distributors, authorised representatives, and a market
-surveillance authority), the four risk tiers, the Annex III high-risk domains,
-and the major obligations. Every modelled element carries a label, a short
-definition, an article or annex reference, and a verbatim snippet of the source
-provision.
+surveillance authority), the Annex III high-risk domains, and the major
+obligations. Every modelled element carries a label, a short definition, an
+article or annex reference, and a verbatim snippet of the source provision. I also
+keep the risk-tier vocabulary used to organise the Act — `UnacceptableRisk` and
+`HighRisk` are article-grounded, while `LimitedRisk` and `MinimalRisk` are common
+usage (recital-level) and are tagged as such.
 
 **Deliberately out of scope:** general-purpose AI model obligations beyond a stub
 class, conformity-assessment and notified-body procedures, penalties, the full
 exception structure of conditional provisions (Article 5(1)(h), Article 50(4)),
-the Article 6(1) product-safety route to high-risk (only the Annex III /
-Article 6(2) route is modelled — flagged by the adversarial Critic, see below),
-and recital detail. My guiding rule was a small, axiomatically rich core over a
-large, thin taxonomy.
+and recital detail. Both high-risk routes are represented — the Annex III route
+(Article 6(2)) as a defined class and the product-safety route (Article 6(1)) as a
+stub, since the latter depends on the Annex I product legislation I do not model.
+My guiding rule was a small, axiomatically rich core over a large, thin taxonomy.
 
 ## 2. AI-assisted pipeline
 
@@ -32,13 +34,14 @@ points, each fenced by an accuracy control I built around it:
    classes, actors, obligations, practices and domains. Each candidate must cite
    a **verbatim anchor phrase**; the script re-locates it in the source and
    copies the surrounding span. Anything not locatable verbatim is auto-flagged.
-3. **Calibrated, conformal review gate** (`score_extractions.py`): each candidate
-   gets an interpretable confidence score; a split-conformal threshold decides
-   which are auto-accepted and which go to a human, with a distribution-free
-   guarantee that a genuinely-correct candidate is auto-accepted with probability
-   >= 1 - alpha. The gate recovers the hand-set review flags as alpha is tuned
-   (see `docs/confidence-gating.md`). The human then decided every routed
-   candidate (`verification-table.md`) before authoring.
+3. **Illustrative conformal-style review gate** (`score_extractions.py`): each
+   candidate gets an interpretable confidence score; a split-conformal threshold
+   decides which are auto-accepted and which go to a human. Under the stated
+   (small, partly synthetic) calibration setup this gives a distribution-free
+   *coverage* statement, tunable by α — a proof of concept, not a guarantee of
+   legal correctness. The gate recovers the hand-set review flags as α is tuned
+   (see `docs/confidence-gating.md`). I then decided every routed candidate
+   (`verification-table.md`) before authoring.
 4. **AI authoring** (`build_ontology.py`): I assembled the verified candidates
    into Turtle with full provenance and the hand-designed axiomatic core.
 5. **Reason + test + back-check** (`build_checks.py`, `verify_provenance.py`).
@@ -46,12 +49,12 @@ points, each fenced by an accuracy control I built around it:
 **How I kept it accurate:** source-grounded extraction (no concept without a
 span), strict flagging of paraphrase/conditional/recital items, a human gate, and
 a final hallucination back-check that re-matches every snippet in the finished
-ontology against the source text (**42/42 matched, 0 unmatched**). The model
+ontology against the source text (**47/47 matched, 0 unmatched**). The model
 proposes; I decide what the law means. As a creative extension I added an
 adversarial **Extractor/Modeller/Critic** variant (`docs/multi-agent.md`) where
 the Critic attacks each axiom with the source text; its flags converge with the
 heuristic and conformal gate, and it surfaced one issue the others missed (the
-Article 6(1) high-risk route).
+Article 6(1) high-risk route) — which I then acted on by modelling both routes.
 
 ## 3. Key modelling decisions
 
@@ -64,12 +67,13 @@ Article 6(1) high-risk route).
   risk *tiers* are local `RiskLevel` individuals and are *not* aligned to
   `airo:Risk`, which is a quantitative likelihood×severity notion, not a
   regulatory category.
-- **Risk modelled once; high-risk is a defined class.** Rather than a parallel
-  risk-category subclass tree, `HighRiskAISystem` is defined as
-  `AISystem ⊓ (operatesInDomain some AnnexIIIDomain)`. A reasoner *infers*
-  membership. Two demo systems assert only their Annex III domain and are
-  classified high-risk; a chatbot with no Annex III domain is correctly left
-  limited-risk (no over-classification).
+- **Risk is reasoned; high-risk follows Article 6's two routes.** Rather than a
+  parallel risk-category subclass tree, `AnnexIIIHighRiskAISystem` is a defined
+  class — `AISystem ⊓ (operatesInDomain some AnnexIIIDomain)` (Art 6(2));
+  `ProductSafetyHighRiskAISystem` is the Art 6(1) stub; and `HighRiskAISystem` is
+  their union. A reasoner *infers* membership. Two demo systems assert only their
+  Annex III domain and are classified high-risk; a chatbot with no Annex III domain
+  is correctly left limited-risk (no over-classification).
 - **Obligations typed by kind; bearer by property.** Obligation subclasses are by
   kind (transparency, risk management, data governance, technical documentation,
   logging, human oversight, post-market monitoring, accuracy/robustness). The
@@ -82,10 +86,11 @@ Article 6(1) high-risk route).
 ## 4. Competency questions and example SPARQL
 
 CQ1 prohibited practices + article (Art 5) · CQ2 provider obligations for
-high-risk systems (Arts 9–17) · CQ3 actors bearing high-risk obligations
-(Arts 16, 26) · CQ4 systems *inferred* high-risk and their Annex III domain
-(Art 6(2)) · CQ5 transparency obligations for limited-risk systems (Art 50).
-All five return non-empty, correct results on the reasoned graph
+high-risk systems (Arts 9–15, 72) · CQ3 actors bearing high-risk obligations —
+provider, deployer, importer, distributor, authorised representative
+(Arts 16, 22, 23, 24, 26) · CQ4 systems *inferred* high-risk and their Annex III
+domain (Art 6(2)) · CQ5 transparency obligations for limited-risk systems
+(Art 50). All five return non-empty, correct results on the reasoned graph
 (`queries/results/`).
 
 ```sparql
@@ -110,10 +115,11 @@ with no unsatisfiable classes, and loads and classifies in Protégé
 (`docs/protege-validation.md`). The headline inference (two systems → high-risk;
 chatbot → not) holds.
 
-**Preliminary metrics.** 25 classes · 6 object + 3 annotation properties · 23
-named individuals · 1 restriction-defined class · 11 AIRO alignment axioms · 44
-article + 9 annex references · 403 asserted → 434 reasoned triples · CQ coverage
-5/5 · snippet match 42/42.
+**Preliminary metrics.** 30 classes · 6 object + 3 annotation properties · 38
+named individuals · 4 logically-defined classes (incl. the Annex III restriction
+and the high-risk union) · 11 AIRO alignment axioms · 51 article + 9 annex
+references · 457 asserted → 493 reasoned triples · CQ coverage 5/5 · snippet match
+47/47.
 
 **Proposed further evaluation.** (1) **CQ coverage** expanded to a larger,
 expert-authored question set; (2) **OOPS!** pitfall scan for common modelling

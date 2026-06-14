@@ -9,39 +9,53 @@ core actors, risk tiers, Annex III domains, and the major obligations — with a
 
 The part I think is novel is *how I keep an LLM-driven pipeline trustworthy*.
 Instead of hand-set rules, the decision of **what a human reviews** is driven by
-two methods I rarely see applied to ontology engineering: a **calibrated conformal
-confidence gate** (uncertainty quantification with a distribution-free guarantee on
-the auto-accepted set) and an **adversarial Extractor → Modeller → Critic
-multi-agent loop**, where a Critic agent tries to *refute* each axiom against the
-source text. Together with verbatim source-grounding, these give **three
-independent accuracy signals that converge** on the same items — and the Critic
-even caught an issue the other two missed.
+two methods I rarely see applied to ontology engineering: an **illustrative
+conformal-style confidence gate** (uncertainty quantification giving a
+distribution-free coverage statement under the stated calibration setup — a proof
+of concept, not a guarantee of legal correctness) and an **adversarial Extractor →
+Modeller → Critic multi-agent loop**, where a Critic agent tries to *refute* each
+axiom against the source text. Together with verbatim source-grounding, these give
+**three independent accuracy signals that converge** on the same items — and the
+Critic even caught an issue the other two missed.
 
 The headline modelling choice is symbolic: `HighRiskAISystem` is a **defined
 class**, so a reasoner *infers* which systems are high-risk — nothing is
 hand-asserted. Generation moves fast; the reasoning stays verifiable.
 
+## Submission checklist
+
+| Task output | Where |
+|---|---|
+| Ontology | [`ontology/eu-ai-act-ontology.ttl`](ontology/eu-ai-act-ontology.ttl) (+ `.owl`, `-reasoned.ttl`) |
+| Short note (≤ 2 pp) | [`docs/short-documentation.pdf`](docs/short-documentation.pdf) ([`.md`](docs/short-documentation.md)) |
+| Competency questions + SPARQL | [`queries/`](queries/) (results in [`queries/results/`](queries/results/)) |
+| Prompts / scripts / artefacts | [`prompts/`](prompts/), [`scripts/`](scripts/), [`data/`](data/) |
+| Validation (Protégé + reasoner) | [`docs/protege-validation.md`](docs/protege-validation.md), screenshot below |
+
 ## Highlights
 
 What makes this more than a hand-drawn taxonomy:
 
-- **Risk is reasoned, not hard-coded.** `HighRiskAISystem` is a *defined* OWL
-  class — `AISystem ⊓ (operatesInDomain some AnnexIIIDomain)`. A reasoner (HermiT)
-  *derives* which systems are high-risk; no instance is hand-typed. Add a system
-  with an Annex III domain and it is classified automatically.
+- **Risk is reasoned, not hard-coded.** High-risk is modelled as Article 6's two
+  routes: `AnnexIIIHighRiskAISystem` is a *defined* class
+  (`AISystem ⊓ (operatesInDomain some AnnexIIIDomain)`, Art 6(2)),
+  `ProductSafetyHighRiskAISystem` is the Art 6(1) stub, and `HighRiskAISystem` is
+  their union. A reasoner (HermiT) *derives* membership; no instance is hand-typed.
 - **Real reuse — and principled non-reuse.** Classes align to the **AIRO** AI Risk
   Ontology (`AISystem ≡ airo:AISystem`, `Provider ⊑ airo:AIProvider`, …). The Act's
   risk *tiers* are kept local on purpose, because AIRO's `Risk` is a quantitative
   notion, not a regulatory category — knowing when *not* to reuse is the point.
 - **Obligations modelled cleanly.** Typed by kind (transparency, risk management,
-  data governance, …) with the bearer attached by a property (`imposedOn`), not
-  baked into the class tree.
-- **Three independent accuracy gates** decide what a human reviews: ① source
-  grounding (every element has a verbatim span; **0 hallucinations**, 42/42
-  matched), ② a **calibrated conformal confidence gate** with a distribution-free
-  guarantee (uncertainty quantification plugged into the human-in-the-loop), and
-  ③ an **adversarial Extractor/Modeller/Critic** multi-agent variant where the
-  Critic refutes axioms with the source text. The three signals converge.
+  data governance, …) with the bearer attached by a property (`imposedOn`), so a
+  single query lists every actor's duties (provider, deployer, importer,
+  distributor, authorised representative).
+- **Three independent accuracy signals** decide what a human reviews: ① source
+  grounding (every element has a verbatim span; **0 hallucinations**, 47/47
+  matched), ② an **illustrative conformal-style confidence gate** (uncertainty
+  quantification driving the gate, with a distribution-free coverage statement
+  under the stated calibration setup — not a legal-correctness guarantee), and
+  ③ an **adversarial Extractor/Modeller/Critic** loop where the Critic refutes
+  axioms with the source text. The three signals converge.
 - **Provenance everywhere.** Every class and individual carries an article/annex
   reference and a verbatim legal snippet; PROV-O on the header records the pipeline.
 - **Validated and reproducible.** Loads in **Protégé**, **consistent under HermiT**,
@@ -148,9 +162,11 @@ reasoning works in the GUI exactly as it does programmatically.*
 My approach is reuse over reinvention: I align local classes to AIRO
 (`AISystem ≡ airo:AISystem`, `Provider ⊑ airo:AIProvider`, …), but I keep the
 Act's risk *tiers* local because AIRO's `Risk` is a quantitative notion, not a
-regulatory category. I model risk once — `HighRiskAISystem ≡ AISystem ⊓
-(operatesInDomain some AnnexIIIDomain)` — so membership is inferred rather than
-asserted. Obligations are typed by kind with the bearer attached via `imposedOn`,
+regulatory category. High-risk follows Article 6's two routes:
+`AnnexIIIHighRiskAISystem ≡ AISystem ⊓ (operatesInDomain some AnnexIIIDomain)`
+(Art 6(2)), a `ProductSafetyHighRiskAISystem` stub (Art 6(1)), and
+`HighRiskAISystem` as their union — so membership is inferred, not asserted.
+Obligations are typed by kind with the bearer attached via `imposedOn`,
 not baked into the class tree. Every element carries an article/annex reference
 and a verbatim legal snippet, and PROV-O on the header records the pipeline. I
 explain the *why* in `docs/short-documentation.md`; the Protégé confirmation is in

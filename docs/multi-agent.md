@@ -38,8 +38,9 @@ The human-review set is now the union of three independent mechanisms:
 
 Agreement across three independent methods raises confidence in the flagged set;
 the Critic's extra finding shows adversarial verification adds genuine coverage,
-not just redundancy. The Art 6(1) finding was acted on: it is now recorded as a
-deliberate scope exclusion in `docs/short-documentation.md`.
+not just redundancy. I acted on the Art 6(1) finding: high-risk is now modelled as
+the **union of both routes** — `AnnexIIIHighRiskAISystem` (Art 6(2), a defined
+class) and a `ProductSafetyHighRiskAISystem` stub (Art 6(1)).
 
 ## Scope note (honest)
 
