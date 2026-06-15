@@ -1,11 +1,11 @@
 # <img src="docs/icon.png" alt="" height="30" align="top"> EU AI Act Ontology (proof of concept)
 
-![OWL 2 DL](https://img.shields.io/badge/OWL-2%20DL-005A9C)
+![OWL 2 DL](https://img.shields.io/badge/OWL-2%20DL-005A9C?logo=w3c&logoColor=white)
 ![Reasoner: HermiT](https://img.shields.io/badge/reasoner-HermiT%20consistent-2e9c45)
 ![Competency questions 5/5](https://img.shields.io/badge/competency%20questions-5%2F5-2e9c45)
 ![Aligned to AIRO](https://img.shields.io/badge/aligned%20to-AIRO-7a5cc0)
 ![Source](https://img.shields.io/badge/source-Regulation%20%28EU%29%202024%2F1689-003399)
-![License](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY--4.0-blue)
+![License](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY--4.0-blue?logo=creativecommons&logoColor=white)
 
 **Dr Zhaoxing Li** &nbsp; [![Website](https://img.shields.io/badge/Website-1f6feb?logo=githubpages&logoColor=white)](https://zhaoxing-li.github.io/) [![ORCID](https://img.shields.io/badge/ORCID-0000--0003--3560--3461-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0003-3560-3461) [![Google Scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?logo=googlescholar&logoColor=white)](https://scholar.google.com/citations?user=2fqD3zUAAAAJ&hl=en)
 
