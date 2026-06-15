@@ -32,8 +32,8 @@ recorded run: `data/multi-agent-run.json` (reproduce live with
 
 The human-review set is now the union of three independent mechanisms:
 
-1. **Heuristic flags** (hand-set rules): `LimitedRisk`, `MarketSurveillanceAuthority`, `MinimalRisk`, `RealTimeRemoteBiometricID`, `ob_DeepfakeDisclosure`.
-2. **Conformal confidence gate** (`score_extractions.py`): same set recovered as a tunable, guaranteed curve.
+1. **Heuristic flags** (hand-set rules): `LimitedRisk`, `MarketSurveillanceAuthority`, `MinimalRisk`, `ProductSafetyHighRiskAISystem`, `RealTimeRemoteBiometricID`, `ob_DeepfakeDisclosure`.
+2. **Conformal confidence gate** (`score_extractions.py`): the same set recovered as a tunable, illustrative conformal-style curve — a distribution-free coverage statement under the stated calibration setup, not a legal-correctness guarantee.
 3. **Adversarial Critic** (this pipeline): independently re-flags `RealTimeRemoteBiometricID`, `MinimalRisk`, `ob_DeepfakeDisclosure`; clears `MarketSurveillanceAuthority` on reasoned grounds; and **surfaces a new issue none of the others caught** — the Article 6(1) high-risk route.
 
 Agreement across three independent methods raises confidence in the flagged set;

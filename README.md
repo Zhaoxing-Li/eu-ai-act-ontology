@@ -147,10 +147,10 @@ python3 scripts/verify_provenance.py
 
 ```
 [2] HermiT: ontology is CONSISTENT, no unsatisfiable classes
-    inferred HighRiskAISystem: ['CVScreeningTool', 'ExamProctoringSystem']
+    inferred high-risk (Annex III route): ['CVScreeningTool', 'ExamProctoringSystem']
     inference expectations: PASS
 [5] CQ1..CQ5: all non-empty -> PASS
-verify_provenance.py: 0 missing references, 0 unmatched snippets
+verify_provenance.py: 0 missing references, snippet match 47/47 (0 hallucinations)
 ```
 
 ## Validation
